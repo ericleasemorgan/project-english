@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>##TITLE##</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.right {text-align: right; white-space: nowrap; vertical-align:top}
+</style>
+</head>
+<body style='margin-left: 10%; margin-right: 10%; margin-top: 5%'>
+<h1>##TITLE##</h1>
+
+<h2>Bibliographics</h2>
+<table>
+<tr><td class='right'>extent:</td><td>##EXTENT##</tr>
+<tr><td class='right'>imprint:</td><td>##PLACE## ##PUBLISHER## ##DATE##</tr>
+<tr><td class='right'>collection:</td><td>##COLLECTION##</tr>
+<tr><td class='right'>size in pages:</td><td>##PAGES##</tr>
+<tr><td class='right'>size in words:</td><td>##WORDS##</tr>
+<tr><td class='right'>century:</td><td>##CENTURY##th</tr>
+<tr><td class='right'>language:</td><td>##LANGUAGE##</tr>
+</table>
+
+<h2>Full texts</h2>
+<ul>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.txt'>plain text</a> - intended for text processing</li>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.htm'>HTML</a> - easier to read and print, mostly</li>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
+</ul>
+
+<h2>Services</h2>
+<ul>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=1'>uni-grams</a> - individual words</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=2'>bi-grams</a> - two-word phrases </li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=3'>tri-grams</a> - three-word phrases</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi?id=##ID##'>noun phrases</a> - the subjects and objects of sentences</li>
+</ul>
+
+</body>
+</html>
