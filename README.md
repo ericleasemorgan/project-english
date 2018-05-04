@@ -1,7 +1,7 @@
 Project English
 ===============
 
-<img style="float: right;" src="./etc/eye-candy.jpg">For the lack of a better name, Project English is an attempt to bring together an estimated 2.5 million English/American works into a single coherent index and accompanying set of natural language processing services. This repository contains the programs and scripts used to make this a reality.
+For the lack of a better name, Project English is an attempt to bring together an estimated 2.5 million English/American works into a single coherent index and accompanying set of natural language processing services. This repository contains the programs and scripts used to make this a reality.
 
 There exists three large collections of English/American literature and published works: Early English Books Online, Eighteenth Century Collection Online, and Sabin Americana. This set of works spans the years 1450 to 1950. It is manifested as a set of XML transcriptions and JPEG page facsimiles. While I have not actually counted how many works are in the proposed collection, I'm guessing there are about 2.5 million items. Taken as a whole, they represent a very large swath of English/American literature. The goal of this Project is to make this whole both accessible & useful to the University of Notre Dame community.
 
