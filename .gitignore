@@ -2,6 +2,5 @@ collections
 etc/DataTables
 etc/english.db
 etc/jquery-3.0.0.min.js
-etc/search-results
 log/
 tmp/
