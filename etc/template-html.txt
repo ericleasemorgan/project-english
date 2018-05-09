@@ -27,13 +27,20 @@
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
 </ul>
 
-<h2>Services</h2>
+<h2>Counts &amp; tabulations</h2>
 <ul>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=1'>uni-grams</a> - individual words</li>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=2'>bi-grams</a> - two-word phrases </li>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=3'>tri-grams</a> - three-word phrases</li>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi?id=##ID##'>noun phrases</a> - the subjects and objects of sentences</li>
 </ul>
+
+<h2>Log-likelihood</h2>
+
+<p>Use log-likelihood ratios to compare &amp; contrast this item with any other Project English item, or Shakespeare's <cite>Hamlet</cite> by default.</p>
+
+<form method='GET' action='/cgi-bin/likelihood.cgi'><input type='hidden' name='analysis_id' value='##ID##' />Project English identifier: <input type='text' name='reference_id' value='A59527' /><input type='submit' value='Go' />
+</form>
 
 </body>
 </html>

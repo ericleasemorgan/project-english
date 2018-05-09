@@ -8,6 +8,19 @@ use DBI;
 use strict;
 
 
+sub stopwords {
+
+	my $file      = shift;
+	my %stopwords = ();
+	
+	my $stopwords = &slurp( $file );
+	foreach my $word ( split( '\n', &slurp( $file ) ) ) { $stopwords{ $word }++ }
+	
+	return \%stopwords;
+		
+}
+
+
 sub escape {
 
 	my $string = shift;

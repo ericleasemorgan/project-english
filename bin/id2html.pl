@@ -6,6 +6,7 @@
 # (c) University of Notre Dame, distributed under a GNU Public License
 
 # April 23, 2018 - first investigations
+# May 9, 2018    - added log-likelihood
 
 
 # configure
@@ -59,10 +60,10 @@ warn "     century: $century\n";
 warn "    language: $language\n";
 warn "\n";
 
-$title = &escape( $title );
+$title     = &escape( $title );
 $publisher = &escape( $publisher );
-$extent = &escape( $extent );
-$date = &escape( $date );
+$extent    = &escape( $extent );
+$date      = &escape( $date );
 
 my $html = &slurp( TEMPLATE );
 $html =~ s/##TITLE##/$title/g;

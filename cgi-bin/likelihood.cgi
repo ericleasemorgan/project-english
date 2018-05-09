@@ -6,10 +6,11 @@
 # (c) University of Notre Dame, distributed under a GNU Public License
 
 # May 8, 2018 - based on Early Print work
-
+# May 9, 2018 - added stop words
 
 # configure
-use constant VERBOSE => 0;
+use constant VERBOSE   => 0;
+use constant STOPWORDS => '../etc/stopwords-en.txt';
 
 # require
 use strict;
@@ -32,6 +33,10 @@ if ( ! $analysis_id | ! $reference_id ) {
 # process the input
 else {
 
+	# initialize
+	my $stopwords = &stopwords( STOPWORDS );
+	foreach my $word ( keys %$stopwords ) { warn "$word\n" if VERBOSE }
+	
 	# count the total number of words in the analysis text (c)
 	my $dbh    = &connect2db;
 	my $handle = $dbh->prepare( qq( SELECT words AS c FROM titles WHERE id='$analysis_id'; ) );
@@ -60,7 +65,12 @@ else {
 	$analysis    =~ s/\n+/ /g;
 	my @analysis = split( ' ', $analysis );
 	my %analysis = ();
-	foreach my $analysis ( @analysis ) { $analysis{ $analysis }++ }
+	foreach my $analysis ( @analysis ) {
+		next if $$stopwords{ $analysis };
+		next if $analysis =~ /[[:punct:]]$/;
+		next if $analysis =~ /^[[:punct:]]/;
+		$analysis{ $analysis }++
+	}
 	print STDERR keys( %analysis ) if VERBOSE;
 	
 	# do the same thing for the reference text; determine the collection
@@ -76,7 +86,12 @@ else {
 	$reference    =~ s/\n+/ /g;
 	my @reference = split( ' ', $reference );
 	my %reference = ();
-	foreach my $reference ( @reference ) { $reference{ $reference }++ }
+	foreach my $reference ( @reference ) { 
+		next if $$stopwords{ $reference };
+		next if $reference =~ /[[:punct:]]$/;
+		next if $reference =~ /^[[:punct:]]/;
+		$reference{ $reference }++
+	}
 	print STDERR keys( %reference ) if VERBOSE;
 		
 	# process each reference text word to build up likelihood ratios
@@ -131,13 +146,13 @@ else {
 		my $reference_parts = $$record{ 'reference parts' };
 
 		# build a row
-		my $row  = "<td>$word</td>";
-		$row    .= "<td>$relative_use</td>";
-		$row    .= "<td>$g2</td>";
-		$row    .= "<td>$analysis_count</td>";
-		$row    .= "<td>$reference_count</td>";
-		$row    .= "<td>$analysis_parts</td>";
-		$row    .= "<td>$reference_parts</td>";
+		my $row  = "<td style='text-align: center'>$word</td>";
+		$row    .= "<td style='text-align: center'>$relative_use</td>";
+		$row    .= "<td style='text-align: center'>$g2</td>";
+		$row    .= "<td style='text-align: center'>$analysis_count</td>";
+		$row    .= "<td style='text-align: center'>$reference_count</td>";
+		$row    .= "<td style='text-align: center'>$analysis_parts</td>";
+		$row    .= "<td style='text-align: center'>$reference_parts</td>";
 		
 		# update the table
 		$tbody .= "<tr>$row</tr>";
@@ -157,6 +172,7 @@ print $cgi->header;
 print $html;
 exit;
 
+
 sub result {
 
 	return <<EOF
@@ -173,13 +189,14 @@ EOF
 sub home {
 
 	return <<EOF
-<p>Enter a TCP identifer ("id" value), and this script will return the log-likelihood values for the set of "great ideas" in the given text. Ideas with higher values are more statistically significant in the given text when compared to the TCP corpus over all.</p>
+<p>Given two Project English identifiers, this form will return the log-likelihood ratio (G2) for all the words in first document of the given identifiers. Words with higher G2 ratio are more significant for the first document when compared to the second. Words with lower G2 ratio are less significant. Log-likelihood ratios help answer questions like, "What is significant in this text but not the other? How can I characterize this text? What are some of this text's more unique qualities? What make it different?" The following form will compare &amp; contrast Shakespeare's <cite>Hamlet</cite> with the same author's <cite>The Merry Wives of Windsor</cite>.</p>
 
 <form method='GET' action='/cgi-bin/likelihood.cgi'>
-Analysis ID: <input type='text' name='analysis_id' value='B04138' /><br />
-Reference ID: <input type='text' name='reference_id' value='B04006' /><br />
+Analysis ID: <input type='text' name='analysis_id' value='A59527' /><br />
+Reference ID: <input type='text' name='reference_id' value='A11988' /><br />
 <input type='submit' value='Go' />
 </form>
+
 EOF
 
 }
@@ -190,27 +207,21 @@ sub template {
 	return <<EOF
 <html>
 <head>
+<title>Project English</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/etc/style.css">
-<title>Freebo\@ND</title>
 </head>
 <body>
 <div class="header">
-	<h1>Freebo\@ND - Log-likelihood ratios</h1>
+	<h1>Project English - Log-Likelihood ratios</h1>
 </div>
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/download.html">Download</a></li>
-    <li><a href="/cgi-bin/did2csv.cgi">List bibliographics</a></li>
-    <li><a href="/cgi-bin/did2catalog.cgi">Create catalog</a></li>
-    <li><a href="/cgi-bin/request-collection.cgi">Request collection</a></li>
-    <li><a href="/cgi-bin/likelihood.cgi">Calculate likelihood</a></li>
-    <li><a href="/cgi-bin/did2words.cgi">List words</a></li>
-    <li><a href="/source-code.html">View source code</a></li>
-  </ul>
+    <li><a href="/home.html">Home</a></li>
+    <li><a href="/about/">About and scope</a></li>
+	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+ </ul>
 </div>
 
 <div class="col-9 col-m-9">
@@ -220,17 +231,19 @@ sub template {
 <div class="footer">
 
 <p style='text-align: right'>
-Eric Lease Morgan &amp; Team Early English Print<br />
-July 17, 2017
+Eric Lease Morgan &amp; Team Project English<br />
+April 18, 2018
 </p>
 
 </div>
 
 </div>
 
+
 </body>
 </html>
 EOF
+
 
 }
 
@@ -239,7 +252,7 @@ sub db2table {
 	return <<EOF;
 <!DOCTYPE html>
 <head>
-	<title>Freebo\@ND</title>
+	<title>Project English</title>
   	<script type="text/javascript" charset="utf8" src="/etc/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="/etc/DataTables/datatables.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -257,18 +270,18 @@ sub db2table {
 <table id="bibliographics" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-				<th>Idea</th>
-				<th>Relative use</th>
-				<th>G2</th>
-				<th>Analysis count</th>
-				<th>Reference count</th>
-				<th>Analysis parts/10,000</th>
-				<th>Reference parts/10,000</th>
+				<th style='text-align: center'>Word</th>
+				<th style='text-align: center'>Relative use</th>
+				<th style='text-align: center'>G2</th>
+				<th style='text-align: center'>Analysis count</th>
+				<th style='text-align: center'>Reference count</th>
+				<th style='text-align: center'>Analysis parts/10,000</th>
+				<th style='text-align: center'>Reference parts/10,000</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-				<th>Idea</th>
+				<th>Word</th>
 				<th>Relative use</th>
 				<th>G2</th>
 				<th>Analysis count</th>

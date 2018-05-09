@@ -26,11 +26,11 @@ OUTPUT="$ORIGINAL/$LEAF.html"
 # echo and do the work
 echo "$LEAF  $OUTPUT" >&2
 
-if [ -f "$OUTPUT" ]; then
-	echo "$OUTPUT exist" >&2
-else
+#if [ -f "$OUTPUT" ]; then
+#	echo "$OUTPUT exist" >&2
+#else
 	$ID2HTML $LEAF 1> $OUTPUT
-fi
+#fi
 
 
 
