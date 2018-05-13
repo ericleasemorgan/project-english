@@ -204,12 +204,14 @@ else {
 	}	
 
 	# populate forms
-	my $id2tsv =  &ids2tsv;
-	$id2tsv    =~ s/##IDS##/join( ' ', @ids )/e;
-	my $id2table =  &ids2table;
-	$id2table    =~ s/##IDS##/join( ' ', @ids )/e;
-	my $id2zip =  &ids2zip;
-	$id2zip    =~ s/##IDS##/join( ' ', @ids )/e;
+	my $id2tsv     =  &ids2tsv;
+	$id2tsv        =~ s/##IDS##/join( ' ', @ids )/e;
+	my $id2table   =  &ids2table;
+	$id2table      =~ s/##IDS##/join( ' ', @ids )/e;
+	my $id2zip     =  &ids2zip;
+	$id2zip        =~ s/##IDS##/join( ' ', @ids )/e;
+	my $ids2carrel =  &ids2carrel;
+	$ids2carrel    =~ s/##IDS##/join( ' ', @ids )/e;
 
 	# build the html
 	$html =  &results_template;
@@ -217,6 +219,7 @@ else {
 	$html =~ s/##ID2TSV##/$id2tsv/ge;
 	$html =~ s/##ID2TABLE##/$id2table/ge;
 	$html =~ s/##ID2ZIP##/$id2zip/ge;
+	$html =~ s/##ID2CARREL##/$ids2carrel/ge;
 	$html =~ s/##QUERY##/$sanitized/e;
 	$html =~ s/##TOTAL##/$total/e;
 	$html =~ s/##HITS##/scalar( @hits )/e;
@@ -264,7 +267,7 @@ sub results {
 	return <<EOF
 	<p>Your search found ##TOTAL## item(s) and ##HITS## item(s) are displayed.</p>
 	
-	<p>##ID2TABLE## | ##ID2TSV## | ##ID2ZIP##</p>
+	<p>##ID2TABLE## | ##ID2TSV## | ##ID2ZIP## | ##ID2CARREL##</p>
 	
 	<h3>Items</h3><ol>##ITEMS##</ol>
 EOF
@@ -424,6 +427,14 @@ sub ids2zip {
 
 	return <<EOF
 <a href="/cgi-bin/ids2zip.cgi?ids=##IDS##">Download search results</a>
+EOF
+
+}
+
+sub ids2carrel {
+
+	return <<EOF
+<a href="/cgi-bin/ids2carrel.cgi?ids=##IDS##">Analyze results</a>
 EOF
 
 }

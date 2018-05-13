@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Study carrel</title>
+</head>
+<body>
+<h1>Study carrel</h1>
+
+<p>Formats: <a href="./text/">text</a>, <a href="./htm/">htm</a>, <a href="./html/">html</a>, <a href="./xml/">xml</a></p>
+
+<form method='POST' action='/cgi-bin/ids2tsv.cgi'>
+<input type='hidden' name='ids' size='50' value='##IDS##'/>
+<input type='submit' value='Get metadata' />
+</form>
+
+<form method='POST' action='/cgi-bin/ids2zip.cgi'>
+<input type='hidden' name='ids' size='50' value='##IDS##'/>
+<input type='submit' value='Download search results' />
+</form>
+
+<form method='POST' action='/cgi-bin/ids2table.cgi'>
+<input type='hidden' name='ids' size='50' value='##IDS##'/>
+<input type='submit' value='View as table' />
+</form>
+
+<form method='GET' action='/cgi-bin/likelihood.cgi'>
+<select name="analysis_id">
+##OPTIONS##
+</select>
+<select name="reference_id">
+##OPTIONS##
+</select>
+<input type='submit' value='Go' />
+
+
+
+</body>
+</html>

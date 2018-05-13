@@ -25,6 +25,7 @@
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.txt'>plain text</a> - intended for text processing</li>
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.htm'>HTML</a> - easier to read and print, mostly</li>
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.ner'>NER</a> - named-entities (people, places, organizations)</li>
 </ul>
 
 <h2>Counts &amp; tabulations</h2>
@@ -35,10 +36,15 @@
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi?id=##ID##'>noun phrases</a> - the subjects and objects of sentences</li>
 </ul>
 
+<h2>Word clouds</h2>
+<ul>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=PERSON'>people</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=LOCATION'>places</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=ORGANIZATION'>organizations</a></li>
+</ul>
+
 <h2>Log-likelihood</h2>
-
 <p>Use log-likelihood ratios to compare &amp; contrast this item with any other Project English item, or Shakespeare's <cite>Hamlet</cite> by default.</p>
-
 <form method='GET' action='/cgi-bin/likelihood.cgi'><input type='hidden' name='analysis_id' value='##ID##' />Project English identifier: <input type='text' name='reference_id' value='A59527' /><input type='submit' value='Go' />
 </form>
 
