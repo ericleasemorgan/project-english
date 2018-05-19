@@ -30,10 +30,16 @@ echo $XML  >&2
 echo $NER  >&2
 echo       >&2
 
-# do the work
-$NERCLIENT $FILE > $XML
-$NER2TAB $XML    > $NER
+# check to see if we've already been here
+if [ -f "$NER" ]; then
+	echo "$NER exists" >&2
 
-# clean up and done
-rm $XML
+# do the work
+else
+	$NERCLIENT $FILE > $XML
+	$NER2TAB $XML    > $NER
+	rm $XML
+fi
+
+# done
 exit

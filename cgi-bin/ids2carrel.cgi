@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# ids2zip.cgi - given one more more identifiers, create a "study carrel"
+# ids2carrel.cgi - given one more more identifiers, create a "study carrel"
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame; distributed under a GNU Public License
@@ -8,12 +8,14 @@
 # May 10, 2018 - first investigations
 # May 11, 2018 - added different types of versions of the file
 
+
 # configure
 use constant CARRELS  => '../carrels';
 use constant CARREL   => 'xyzzy';
 use constant TEMPLATE => '../etc/template-carrel.txt';
-use constant QUERY    => qq( SELECT id, collection FROM titles WHERE ##CLAUSE##; );
+use constant QUERY    => qq( SELECT id, collection, title FROM titles WHERE ##CLAUSE##; );
 use constant ROOT     => '../../..';
+use constant SIZE     => 55;
 
 # require
 use CGI;
@@ -57,6 +59,7 @@ else {
 	mkdir "$directory/html";
 	mkdir "$directory/text";
 	mkdir "$directory/xml";
+	mkdir "$directory/ner";
 	
 	# save the identifiers, for future reference
 	open IDS, " > $directory/etc/ids.txt" or die( "Can't open $directory/etc/ids.txt ($!). Call Eric.\n" );
@@ -75,11 +78,16 @@ else {
 	$handle->execute() or die $DBI::errstr;
 
 	# process each item in the found set
+	my %ids = ();
 	while( my $item = $handle->fetchrow_hashref ) {
 	
 		# parse
 		my $collection = $$item{ 'collection' };
 		my $id         = $$item{ 'id' };
+		my $title      = substr( $$item{ 'title' }, 0, SIZE );
+		
+		# update the options
+		$ids{ $id } = "$title";
 		
 		# generate file names
 		my $root = ROOT . &id2root( $collection, $id );
@@ -87,13 +95,20 @@ else {
 		symlink( "$root/$id.html", "$directory/html/$id.html" );
 		symlink( "$root/$id.txt",  "$directory/text/$id.txt" );
 		symlink( "$root/$id.xml",  "$directory/xml/$id.xml" );
+		symlink( "$root/$id.ner",  "$directory/ner/$id.ner" );
 	
 	}
 
 	my $options = '';
-	foreach my $id ( @ids ) { $options .= "<option value='$id'>$id</option>" }
+	foreach my $id ( sort{ $ids{ $b } <=> $ids{$a} } keys( %ids ) ) {
+	
+		my $title = $ids{ $id };
+		$options .= "<option value='$id'>$title ($id)</option>"
+		
+	}
 	
 	my $html = &slurp( TEMPLATE );
+	$html =~ s/##TOTAL##/scalar( @ids )/eg;
 	$html =~ s/##OPTIONS##/$options/g;
 	$html =~ s/##IDS##/$ids/g;
 	
@@ -102,7 +117,7 @@ else {
 	close HTML;
 	
 	# done
-	print $cgi->redirect( 'http://cds.crc.nd.edu/carrels/xyzzy/');
+	print $cgi->redirect( 'http://cds.crc.nd.edu/carrels/xyzzy/home.html');
 
 }
 

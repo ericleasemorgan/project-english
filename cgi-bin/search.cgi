@@ -159,21 +159,21 @@ else {
 		if ( $collection eq 'freebo' ) { 
 		
 			my $prefix  = substr( $id, 0, 3 );
-			$details = FREEBO . "/$prefix/$id/";
+			$details = FREEBO . "/$prefix/$id/$id.html";
 			
 		}
 		
 		if ( $collection eq 'sabin' ) { 
 		
 			my $prefix  = substr( $id, 3, 3 ) . '/' . substr( $id, 6, 3 );
-			$details = SABIN . "/$prefix/$id/";
+			$details = SABIN . "/$prefix/$id/$id.html";
 			
 		}
 		
 		if ( $collection eq 'ecco' ) { 
 		
 			my $prefix  = substr( $id, 0, 2 ) . '/' . substr( $id, 2, 2 );
-			$details = ECCO . "/$prefix/$id/";
+			$details = ECCO . "/$prefix/$id/$id.html";
 			
 		}
 			
@@ -327,8 +327,8 @@ sub template {
 
 	<p>Given a query, this page will return a relevancy ranked list of results.</p>
 	<p>
-	<form method='GET' action='./search.cgi'>
-	<input type='text' name='query' value='##QUERY##' size='50' />
+	<form method='GET' action='/cgi-bin/search.cgi'>
+	<input type='text' name='query' value='##QUERY##' size='50' autofocus="autofocus"/>
 	<input type='submit' value='Search' />
 	</form>
 
@@ -382,7 +382,7 @@ sub results_template {
 	<div class="col-6 col-m-6">
 		<p>
 		<form method='GET' action='/cgi-bin/search.cgi'>
-		<input type='text' name='query' value='##QUERY##' size='50' />
+		<input type='text' name='query' value='##QUERY##' size='50' autofocus="autofocus"/>
 		<input type='submit' value='Search' />
 		</form>
 		

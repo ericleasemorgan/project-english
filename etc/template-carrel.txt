@@ -1,27 +1,91 @@
 <html>
+
 <head>
-<title>Study carrel</title>
+<title>Project English - Study carrel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/etc/style.css">
 </head>
+
 <body>
-<h1>Study carrel</h1>
 
-<p>Formats: <a href="./text/">text</a>, <a href="./htm/">htm</a>, <a href="./html/">html</a>, <a href="./xml/">xml</a></p>
+<div class="header">
+	<h1>Project English - Study carrel</h1>
+</div>
 
-<form method='POST' action='/cgi-bin/ids2tsv.cgi'>
-<input type='hidden' name='ids' size='50' value='##IDS##'/>
-<input type='submit' value='Get metadata' />
-</form>
+<div class="col-3 col-m-3 menu">
+  <ul>
+    <li><a href="/home.html">Home</a></li>
+  </ul>
+</div>
 
-<form method='POST' action='/cgi-bin/ids2zip.cgi'>
-<input type='hidden' name='ids' size='50' value='##IDS##'/>
-<input type='submit' value='Download search results' />
-</form>
+<div class="col-9 col-m-9">
 
-<form method='POST' action='/cgi-bin/ids2table.cgi'>
+<p>This page is a "study carrel" -- a student's personal space for reading &amp; studying their selected materials. It contains ##TOTAL## individual items. Use this page to become familiar with this collection. Ask yourself questions, and use the tools here to try to answer them.</p>
+
+<h2>Formats &amp; transformations</h2>
+
+<ol>
+<li><a href="./text/">text</a> - plain text files; used to do much of the text mining analysis below</li>
+<li><a href="./htm/">htm</a> - rudimentary HTML files; print these and write on the result</li>
+<li><a href="./html/">html</a> - HTML files including widgets; contains tools for individual document study</li>
+<li><a href="./xml/">xml</a> - original data</li>
+<li><a href="./ner/">named entities</a> - tabulations of people, places, &amp; organizations</li>
+</ol>
+
+
+<h2>Downloads</h2>
+
+<table>
+<tr><td><form method='POST' action='/cgi-bin/ids2table.cgi'>
 <input type='hidden' name='ids' size='50' value='##IDS##'/>
 <input type='submit' value='View as table' />
 </form>
+</td><td><form method='POST' action='/cgi-bin/ids2zip.cgi'>
+<input type='hidden' name='ids' size='50' value='##IDS##'/>
+<input type='submit' value='Download search results' />
+</form>
+</td><td><form method='POST' action='/cgi-bin/ids2tsv.cgi'>
+<input type='hidden' name='ids' size='50' value='##IDS##'/>
+<input type='submit' value='Get metadata' />
+</form>
+</td></tr>
+</table>
 
+<h2>Counts &amp; tabulations</h2>
+
+<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi'>
+<select name="id">
+##OPTIONS##
+</select>
+<select name="n">
+<option value='1'>uni-grams</option>
+<option value='2'>bigrams</option>
+<option value='3'>trigrams</option>
+</select>
+<input type='submit' value='Get ngrams' />
+</form>
+
+<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi'>
+<select name="id">
+##OPTIONS##
+</select>
+<input type='submit' value='Get noun phrases' />
+</form>
+
+<h2>Word clouds</h2>
+<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi'>
+<select name="id">
+##OPTIONS##
+</select>
+<select name="element">
+<option value='PERSON'>people</option>
+<option value='LOCATION'>places</option>
+<option value='ORGANIZATION'>organizations</option>
+</select>
+<input type='submit' value='Make cloud' />
+</form>
+
+<h2>Log-likelihoods</h2>
 <form method='GET' action='/cgi-bin/likelihood.cgi'>
 <select name="analysis_id">
 ##OPTIONS##
@@ -30,8 +94,27 @@
 ##OPTIONS##
 </select>
 <input type='submit' value='Go' />
+</form>
 
+<h2>Concordances</h2>
 
+<form method='GET' action='/cgi-bin/concordance.cgi'>
+<select name="id">
+##OPTIONS##
+</select>
+<input type='text' name='word' value='love'/>
+<input type='submit' value='Concordance' />
+</form>
+
+	
+	<div class="footer">
+		<p style='text-align: right'>
+		Eric Lease Morgan &amp; Team Project English<br />
+		April 6, 2018
+		</p>
+	</div>
+
+</div>
 
 </body>
 </html>

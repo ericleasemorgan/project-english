@@ -74,7 +74,7 @@ else {
 		my $extent     = $$titles{ 'extent' };
 		my $date       = $$titles{ 'date' };
 
-		my $link = &id2root( $collection, $id );
+		my $link = &id2root( $collection, $id ) . "/$id.html";
 
 		# find the given title's authors; only get the first one
 		my $author = '';
