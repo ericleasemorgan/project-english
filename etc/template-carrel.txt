@@ -96,6 +96,24 @@
 <input type='submit' value='Go' />
 </form>
 
+<h2>Topic models</h2>
+
+<p>Cluster/describe the documents in this study carrel in a number of ways:</p>
+<ul>
+<li>If there was a <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=1&dimensions=1'>single word</a> used to characterize this collection, then it might be...</li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=3&dimensions=1'>three words</a>.</li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=5&dimensions=1'>five words</a></li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=5&dimensions=3'>five words and three dimensions</a></li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=10&dimensions=1'>ten words</a></li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=10&dimensions=10'>ten words and five dimensions</a></li>
+<li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=25&dimensions=1'>twenty-five words</a></li>
+</ul>
+
+<p>Or some other combination:</p>
+
+<form method="GET" action="/cgi-bin/model.cgi">Number of topics: <input name='topics' value='1' size='3' /> Number of dimensions: <input name='dimensions' value='1'  size='3' />  <input type="submit" value="Topic model" /></form>
+
+
 <h2>Concordances</h2>
 
 <form method='GET' action='/cgi-bin/concordance.cgi'>

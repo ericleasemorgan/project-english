@@ -1,7 +1,3 @@
-thy
-thou
-doth
-whilst
 0
 1
 2
@@ -12,7 +8,6 @@ whilst
 7
 8
 9
-a
 a
 about
 above
@@ -53,6 +48,7 @@ does
 doesn't
 doing
 don't
+doth
 down
 during
 e
@@ -199,6 +195,7 @@ where
 where's
 which
 while
+whilst
 who
 who's
 whom
