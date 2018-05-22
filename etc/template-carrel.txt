@@ -122,6 +122,9 @@
 
 <form method="GET" action="/cgi-bin/model.cgi">Number of topics: <input name='topics' value='1' size='3' /> Number of dimensions: <input name='dimensions' value='1'  size='3' />  <input type="submit" value="Topic model" /></form>
 
+<h2>Visualizations/clusters</h2>
+
+<p>Visualize (cluster) the given collection in one of two ways:</p><form method="GET" action="/cgi-bin/cluster.cgi"><input type="radio" name="graphic" value="cube" checked> cube</input> <input type="radio" name="graphic" value="dendrogram"> dendrogram</input> <input type='submit' value='Cluster' /></form>
 
 <h2>Concordances</h2>
 
