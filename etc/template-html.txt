@@ -58,6 +58,12 @@
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=ORGANIZATION'>organizations</a></li>
 </ul>
 
+<h2>Dispersion plots</h2>
+
+<p>Enter one or more words to see where it/they occur in the text.</p>
+<form method='GET' action='http://cds.crc.nd.edu/cgi-bin/dispersion.cgi'><input type='hidden' name='id' value='##ID##' /><input type='text' size='50' name='words' value='love honor truth justice god king man' /><input type='submit' value='Plot' />
+
+
 <h2>Log-likelihood</h2>
 <p>Use log-likelihood ratios to compare &amp; contrast this item with any other Project English item, or Shakespeare's <cite>Hamlet</cite> by default.</p>
 <form method='GET' action='/cgi-bin/likelihood.cgi'><input type='hidden' name='analysis_id' value='##ID##' />Project English identifier: <input type='text' name='reference_id' value='A59527' /><input type='submit' value='Go' />

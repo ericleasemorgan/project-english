@@ -85,6 +85,15 @@
 <input type='submit' value='Make cloud' />
 </form>
 
+<h2>Dispersion plots</h2>
+
+<p>Enter one or more words to see where it/they occur in the text.</p>
+<form method='GET' action='http://cds.crc.nd.edu/cgi-bin/dispersion.cgi'><select name="id">
+##OPTIONS##
+</select>
+<input type='text' size='50' name='words' value='love honor truth justice god king man' /><input type='submit' value='Plot' />
+
+
 <h2>Log-likelihoods</h2>
 <form method='GET' action='/cgi-bin/likelihood.cgi'>
 <select name="analysis_id">
