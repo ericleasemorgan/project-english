@@ -155,15 +155,16 @@ else {
 
 		}
 		
-		# update the study carrel database with named entities and parts-of-speech
-		&entities( $carrell, $ent );
-		&pos( $carrell, $pos );
 		
 		# generate file names for plain text, entities and parts-of-speech
 		my $txt = ROOT . &id2root( $collection, $id ) . "/$id.txt";
 		my $ent = ROOT . &id2root( $collection, $id ) . "/$id.ent";
 		my $pos = ROOT . &id2root( $collection, $id ) . "/$id.pos";
 				
+		# update the study carrel database with named entities and parts-of-speech
+		&entities( $carrell, $ent );
+		&pos( $carrell, $pos );
+		
 		# update the zip file
 		$zip->addFile( $txt, "txt/$id.txt" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 		$zip->addFile( $ent, "ent/$id.ent" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
