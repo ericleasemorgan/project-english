@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# configure qsub
+#$ -N TXT2E02
+#$ -t 1-20000
+#$ -o /afs/crc.nd.edu/user/e/emorgan/local/english/log/txt2ent-02
+
+# configure and make sane
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+cd $HOME
+
+# find all files to process
+FILES=( $( cat ./tmp/batch-02-of-04.txt ) )
+
+# do the work
+FILE="${FILES[${SGE_TASK_ID}]}"
+./bin/txt2ent.sh $FILE

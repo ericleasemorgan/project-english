@@ -40,7 +40,8 @@
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.txt'>plain text</a> - intended for text processing</li>
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.htm'>HTML</a> - easier to read and print, mostly</li>
 <li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.ner'>NER</a> - named-entities (people, places, organizations)</li>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.ent'>ENT</a> - named-entities (people, places, organizations, etc.)</li>
+<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.pos'>POS</a> - parts-of-speech (nouns, verbs, adjectives, etc.)</li>
 </ul>
 
 <h2>Counts &amp; tabulations</h2>
@@ -54,8 +55,13 @@
 <h2>Word clouds</h2>
 <ul>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=PERSON'>people</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=LOCATION'>places</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=ORGANIZATION'>organizations</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=NORP'>nationalities or religious or political groups</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=FACILITY'>buildings, airports, highways, bridges, etc.</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=ORG'>companies, agencies, institutions, etc.</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=GPE'>countries, cities, states</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=LANGUAGE'>named languages</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=DATE'>absolute or relative dates or periods</a></li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=TIME'>times smaller than a day</a></li>
 </ul>
 
 <h2>Dispersion plots</h2>
@@ -74,12 +80,12 @@
 <form method='GET' action='/cgi-bin/concordance.cgi'><input type='hidden' name='id' value='##ID##' />Word: <input type="text" name="word" value="love"/> <input type="submit" value="List lines" /></form>
 
 
-	<div class="footer">
-		<p style='text-align: right'>
-		Eric Lease Morgan &amp; Team Project English<br />
-		April 6, 2018
-		</p>
-	</div>
+<div class="footer">
+	<p style='text-align: right'>
+	Eric Lease Morgan &amp; Team Project English<br />
+	May 24, 2018
+	</p>
+</div>
 
 </div>
 

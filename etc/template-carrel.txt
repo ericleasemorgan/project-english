@@ -29,7 +29,8 @@
 <li><a href="./htm/">htm</a> - rudimentary HTML files; print these and write on the result</li>
 <li><a href="./html/">html</a> - HTML files including widgets; contains tools for individual document study</li>
 <li><a href="./xml/">xml</a> - original data</li>
-<li><a href="./ner/">named entities</a> - tabulations of people, places, &amp; organizations</li>
+<li><a href="./ent/">named entities</a> - tabulations of people, places, &amp; organizations</li>
+<li><a href="./pos/">parts-of-speech</a> - tabulations of nouns, verbs, adjectives, etc.</li>
 </ol>
 
 
@@ -79,8 +80,13 @@
 </select>
 <select name="element">
 <option value='PERSON'>people</option>
-<option value='LOCATION'>places</option>
-<option value='ORGANIZATION'>organizations</option>
+<option value='NORP'>nationalities or religious or political groups</option>
+<option value='FACILITY'>buildings, airports, highways, bridges, etc.</option>
+<option value='ORG'>companies, agencies, institutions, etc.</option>
+<option value='GPE'>countries, cities, states</option>
+<option value='LANGUAGE'>named languages</option>
+<option value='DATE'>absolute or relative dates or periods</option>
+<option value='TIME'>times smaller than a day</option>
 </select>
 <input type='submit' value='Make cloud' />
 </form>

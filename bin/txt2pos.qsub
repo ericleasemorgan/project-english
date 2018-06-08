@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# configure qsub
+#$ -N TXT2P03
+#$ -t 1-20000
+#$ -o /afs/crc.nd.edu/user/e/emorgan/local/english/log/txt2pos-03
+
+# set environment; make sane
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+cd $HOME
+
+# find all files to process
+FILES=( $( cat ./tmp/batch-03-of-04.txt ) )
+
+# do the work
+FILE="${FILES[${SGE_TASK_ID}]}"
+./bin/txt2pos.sh $FILE

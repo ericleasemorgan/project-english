@@ -12,7 +12,8 @@
 # configure
 use constant QUERY  => qq(SELECT * FROM titles WHERE ##CLAUSE## ORDER BY id;);
 use constant HTTP   => 'http://cds.crc.nd.edu';
-use constant HEADER => ( 'identifier', 'collection', 'key', 'title', 'url' );
+#use constant HEADER => ( 'id', 'collection', 'title', 'url' );
+use constant HEADER => ( 'century', 'city', 'collection', 'date', 'extent', 'id', 'imprint', 'language', 'pages', 'place', 'publisher', 'title', 'words', 'year', 'url' );
 
 # require
 use strict;
@@ -65,10 +66,21 @@ else {
 	while( my $titles = $handle->fetchrow_hashref ) {
 	
 		# parse the title data
-		my $id         = $$titles{ 'id' };
+		my $century    = $$titles{ 'century' };
+		my $city       = $$titles{ 'city' };
 		my $collection = $$titles{ 'collection' };
+		my $date       = $$titles{ 'date' };
+		my $extent     = $$titles{ 'extent' };
+		my $id         = $$titles{ 'id' };
+		my $imprint    = $$titles{ 'imprint' };
+		my $language   = $$titles{ 'language' };
+		my $pages      = $$titles{ 'pages' };
+		my $place      = $$titles{ 'place' };
+		my $publisher  = $$titles{ 'publisher' };
 		my $title      = $$titles{ 'title' };
-	
+		my $words      = $$titles{ 'words' };
+		my $year       = $$titles{ 'year' };
+		
 		# build the url
 		my $url = HTTP . &id2root( $collection, $id );
 
@@ -80,7 +92,7 @@ else {
 		#print STDERR "\n";
 
 		# create a record and then update the "database"
-		my @record = ( $id, $collection, "$collection-$id", $title, $url );
+		my @record = ( $century, $city, $collection, $date, $extent, $id, $imprint, $language, $pages, $place, $publisher, $title, $words, $year, $url );
 		push( @records, join( "\t", @record ) );
 	
 	}

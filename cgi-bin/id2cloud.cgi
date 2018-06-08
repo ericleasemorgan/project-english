@@ -33,14 +33,14 @@ else {
 	my $item       = $handle->fetchrow_hashref;
 	my $collection = $$item{ 'collection' };
 	my $id         = $$item{ 'id' };
-	my $file       = ROOT . &id2root( $collection, $id ) . "/$id.ner";
+	my $file       = ROOT . &id2root( $collection, $id ) . "/$id.ent";
 
 	my %entities = ();
 	open INPUT, " < $file" or die "Can't open $file ($!).\n";
 	while ( <INPUT> ) {
 
 		chop;
-		my ( $id, $type, $entity ) = split( "\t", $_ );
+		my ( $id, $entity, $type ) = split( "\t", $_ );
 		next if ( $type ne $element );
 		$entities{ $entity }++;
 	 
@@ -87,11 +87,14 @@ sub form {
 
 <p>Given an Project English identifier and a type of word, this form will return an word cloud.</p>
 <form method='GET' action='/cgi-bin/id2cloud.cgi'>
-<input type='text' name='id' size='50' value='A02000'/>
+<input type='text' name='id' size='50' value='A00011'/>
 <select name="element">
 <option value='PERSON'>people</option>
-<option value='ORGANIZATION'>organizations</option>
-<option value='LOCATION'>places</option>
+<option value='ORG'>organizations</option>
+<option value='GPE'>gpe</option>
+<option value='NORP'>NORP</option>
+<option value='ORDINAL'>ORDINAL</option>
+<option value='DATE'>DATE</option>
 </select>
 
 <input type='submit' value='Make word cloud' />

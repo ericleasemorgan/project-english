@@ -59,7 +59,8 @@ else {
 	mkdir "$directory/html";
 	mkdir "$directory/text";
 	mkdir "$directory/xml";
-	mkdir "$directory/ner";
+	mkdir "$directory/ent";
+	mkdir "$directory/pos";
 	
 	# save the identifiers, for future reference
 	open IDS, " > $directory/etc/ids.txt" or die( "Can't open $directory/etc/ids.txt ($!). Call Eric.\n" );
@@ -95,7 +96,8 @@ else {
 		symlink( "$root/$id.html", "$directory/html/$id.html" );
 		symlink( "$root/$id.txt",  "$directory/text/$id.txt" );
 		symlink( "$root/$id.xml",  "$directory/xml/$id.xml" );
-		symlink( "$root/$id.ner",  "$directory/ner/$id.ner" );
+		symlink( "$root/$id.ent",  "$directory/ent/$id.ent" );
+		symlink( "$root/$id.pos",  "$directory/pos/$id.pos" );
 	
 	}
 
