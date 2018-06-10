@@ -11,21 +11,26 @@
 
 
 # configure
-use constant QUERY        => qq( SELECT * FROM titles WHERE ##CLAUSE##; );
-use constant ROOT         => '..';
-use constant ZIPFILE      => '../tmp/search-results.zip';
-use constant README       => '../etc/search-results/README';
-use constant LICENSE      => '../etc/search-results/LICENSE';
-use constant MANIFEST     => '../etc/search-results/MANIFEST';
-use constant MODEL        => '../etc/search-results/bin/model.py';
-use constant CLUSTER      => '../etc/search-results/bin/cluster.py';
-use constant NGRAMS       => '../etc/search-results/bin/ngrams.py';
-use constant NOUNPHRASES  => '../etc/search-results/bin/noun-phrases.py';
-use constant STOPWORDS    => '../etc/search-results/etc/stopwords.txt';
-use constant DESCRIBE     => '../etc/search-results/bin/describe.sh';
-use constant CARRELLDB    => '../tmp/carrell.db';
-use constant CARRELLSQL   => '../etc/carrell.sql';
-use constant DRIVER       => 'SQLite';
+use constant CARRELLDB       => '../tmp/carrell.db';
+use constant CARRELLSQL      => '../etc/carrell.sql';
+use constant CLUSTER         => '../etc/search-results/bin/cluster.py';
+use constant DESCRIBE        => '../etc/search-results/bin/describe.sh';
+use constant DESCRIBES       => '../etc/search-results/bin/describe-sequentially.sh';
+use constant DRIVER          => 'SQLite';
+use constant LICENSE         => '../etc/search-results/LICENSE';
+use constant MANIFEST        => '../etc/search-results/MANIFEST';
+use constant MODEL           => '../etc/search-results/bin/model.py';
+use constant NGRAMS          => '../etc/search-results/bin/ngrams.py';
+use constant NOUNPHRASES     => '../etc/search-results/bin/noun-phrases.py';
+use constant QUERY           => qq( SELECT * FROM titles WHERE ##CLAUSE##; );
+use constant README          => '../etc/search-results/README';
+use constant ROOT            => '..';
+use constant STOPWORDS       => '../etc/search-results/etc/stopwords.txt';
+use constant SUMMARIZE       => '../etc/search-results/bin/summarize.sh';
+use constant WHATISDESCRIBED => '../etc/search-results/bin/what-is-described-as.sh';
+use constant WHATISOBJECT    => '../etc/search-results/bin/what-is-the-object-of.sh';
+use constant WHATWASDONE     => '../etc/search-results/bin/what-was-done-by.sh';
+use constant ZIPFILE         => '../tmp/search-results.zip';
 
 # require
 use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
@@ -72,12 +77,17 @@ else {
 	
 	# create bin directory and add scripts
 	$zip->addDirectory( 'bin/' );
-	$zip->addFile( MODEL, "bin/model.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( CLUSTER, "bin/cluster.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( DESCRIBE, "bin/describe.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( DESCRIBES, "bin/describe-sequentially.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( MODEL, "bin/model.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( NGRAMS, "bin/ngrams.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( NOUNPHRASES, "bin/noun-phrases.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
-	$zip->addFile( DESCRIBE, "bin/describe.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
-	
+	$zip->addFile( SUMMARIZE, "bin/summarize.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( WHATWASDONE, "bin/what-was-done-by.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( WHATISOBJECT, "bin/what-is-the-object-of.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( WHATWASDONE, "bin/what-was-done-by.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+
 	# create etc directory and add... stuff
 	$zip->addDirectory( 'etc/' );
 	$zip->addFile( STOPWORDS, "etc/stopwords.txt" )->desiredCompressionMethod( COMPRESSION_DEFLATED );

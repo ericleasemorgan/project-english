@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-# describe.sh - given a lemma, list the lemmatized adjectives immediately preceding it
+# what-is-done-by.sh - given an noun or pronoun, list the frequency of verbs immediately following it
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame and distributed under a GNU Public License
 
-# January 3, 2018 - first cut; "Thanks go to Sean Summers for the JOIN operation!"
-# June    6, 2018 - put into Project English
+# June 9, 2018 - experimenting
 
 
 # configure
@@ -19,17 +18,17 @@ if [[ -z $1 || -z $2 ]]; then
 	exit
 fi
 
-QUERY="SELECT COUNT(t.token) AS frequency, t.token AS adjective
+QUERY="SELECT COUNT(t.token) AS frequency, t.token AS verb
 FROM pos AS t
 JOIN pos AS c
-ON c.tid=t.tid+1 AND c.sid=t.sid AND c.id=t.id
-WHERE t.pos LIKE 'J%'
-AND c.token='$1'
+ON c.tid+1=t.tid AND c.sid=t.sid AND c.id=t.id
+WHERE t.pos LIKE 'V%'
+AND ( c.token='$1' AND ( c.pos LIKE 'N%' OR c.pos LIKE 'P%' ) )
 GROUP BY t.token
 ORDER BY frequency DESC, t.token ASC
-LIMIT $2"
+LIMIT $2;"
 
 # set up, debug, do the work, and done
-echo "$1 is described as ____, as in 'The _____ $1...'"
+echo "$1..., as in 'The $1 _____ ...'"
 echo -e "$HEADER$QUERY" | $DB
 exit

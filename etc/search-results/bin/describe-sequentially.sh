@@ -19,14 +19,13 @@ if [[ -z $1 || -z $2 ]]; then
 	exit
 fi
 
-QUERY="SELECT COUNT(t.token) AS frequency, t.token AS adjective
+QUERY="SELECT t.sid AS s, t.token AS adjective
 FROM pos AS t
 JOIN pos AS c
 ON c.tid=t.tid+1 AND c.sid=t.sid AND c.id=t.id
 WHERE t.pos LIKE 'J%'
 AND c.token='$1'
-GROUP BY t.token
-ORDER BY frequency DESC, t.token ASC
+ORDER BY s DESC, t.token ASC
 LIMIT $2"
 
 # set up, debug, do the work, and done
