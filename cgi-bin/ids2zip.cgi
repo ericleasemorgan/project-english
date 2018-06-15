@@ -23,7 +23,6 @@ use constant MANIFEST        => '../etc/search-results/MANIFEST';
 use constant MODEL           => '../etc/search-results/bin/model.py';
 use constant NGRAMS          => '../etc/search-results/bin/ngrams.py';
 use constant NOUNPHRASES     => '../etc/search-results/bin/noun-phrases.py';
-use constant QUERY           => qq( SELECT * FROM titles WHERE ##CLAUSE##; );
 use constant README          => '../etc/search-results/README';
 use constant ROOT            => '..';
 use constant STOPWORDS       => '../etc/search-results/etc/stopwords.txt';
@@ -57,9 +56,7 @@ if ( ! $ids ) {
 else {
 
 	# initialize
-	my @ids     = ();
-	my @queries = ();
-	my %records = ();
+	my @ids = ();
 	
 	# get input and sanitize it
 	$ids =~ s/[[:punct:]]/ /g;
@@ -99,16 +96,6 @@ else {
 	$zip->addDirectory( 'ent/' );
 	$zip->addDirectory( 'pos/' );
 
-	# create the sql WHERE clause and then build the whole sql query
-	for my $id ( @ids ) { push( @queries, "id='$id'" ) }
-	my $sql =  QUERY;
-	$sql    =~ s/##CLAUSE##/join( ' OR ', @queries )/e;
-
-	# execute the query
-	my $dbh    = &connect2db;
-	my $handle = $dbh->prepare( $sql );
-	$handle->execute() or die $DBI::errstr;
-
 	# delete, open, and initialize a study carrell database
 	unlink( ( CARRELLDB ) );
 	my $database = CARRELLDB;
@@ -116,82 +103,42 @@ else {
 	my $carrell  = DBI->connect( "DBI:$driver:dbname=$database", '', '', { RaiseError => 1 } ) or die $DBI::errstr;
 	foreach my $statement ( split ";", &slurp( CARRELLSQL ) ) { $carrell->do( $statement ) }
 
-	# process each title in the found set
-	while( my $item = $handle->fetchrow_hashref ) {
-	
-		# parse
-		my $century    = $$item{ 'century' };
-		my $city       = $$item{ 'city' };
-		my $collection = $$item{ 'collection' };
-		my $date       = $$item{ 'date' };
-		my $extent     = $$item{ 'extent' };
-		my $id         = $$item{ 'id' };
-		my $imprint    = $$item{ 'imprint' };
-		my $language   = $$item{ 'language' };
-		my $pages      = $$item{ 'pages' };
-		my $place      = $$item{ 'place' };
-		my $publisher  = $$item{ 'publisher' };
-		my $title      = $$item{ 'title' };
-		my $words      = $$item{ 'words' };
-		my $year       = $$item{ 'year' };
+	# open a connect to the master database
+	my $english = &connect2db;
 
-		# escape
-		$city      =~ s/'/''/g;
-		$date      =~ s/'/''/g;
-		$extent    =~ s/'/''/g;
-		$imprint   =~ s/'/''/g;
-		$place     =~ s/'/''/g;
-		$publisher =~ s/'/''/g;
-		$title     =~ s/'/''/g;
-		
-		# initialize titles insert statement and do the work
-		my $carrellhandle = $carrell->prepare( "INSERT INTO titles ( 'century', 'city', 'collection', 'date', 'extent', 'id', 'imprint', 'language', 'pages', 'place', 'publisher', 'title', 'words', 'year') VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );" ) or die $DBI::errstr;
-		$carrellhandle->execute( $century, $city, $collection, $date, $extent, $id, $imprint, $language, $pages, $place , $publisher, $title, $words, $year ) or die $DBI::errstr;
+	# process each of the given ids
+	foreach my $id ( @ids ) {
 
-		# find all authors for this item, and process each one
-		my $subhandle = $dbh->prepare( "SELECT * FROM authors WHERE id='$id';" );
-		$subhandle->execute() or die $DBI::errstr;
-		while( my $authors = $subhandle->fetchrow_hashref ) {
-
-			# parse
-			my $collection = $$authors{ 'collection' };
-			my $id         = $$authors{ 'id' };
-			my $author     = $$authors{ 'author' };
-			
-			# escape
-			$author =~ s/'/''/g;
-			
-			# initialize authors insert statement and do the work
-			$carrellhandle = $carrell->prepare( "INSERT INTO authors ( 'collection', 'id', 'author') VALUES ( ?, ?, ? );" ) or die $DBI::errstr;
-			$carrellhandle->execute( $collection, $id, $author ) or die $DBI::errstr;
-
-		}
-		
-		
+		# given the id, find its collection
+		my $handle = $english->prepare( "SELECT collection FROM titles WHERE id IS '$id'" );
+		$handle->execute() or die $DBI::errstr;
+ 		my $collection = $handle->fetchrow_array();
+ 		
 		# generate file names for plain text, entities and parts-of-speech
 		my $txt = ROOT . &id2root( $collection, $id ) . "/$id.txt";
 		my $ent = ROOT . &id2root( $collection, $id ) . "/$id.ent";
 		my $pos = ROOT . &id2root( $collection, $id ) . "/$id.pos";
-				
-		# update the study carrel database with named entities and parts-of-speech
-		&entities( $carrell, $ent );
-		&pos( $carrell, $pos );
+		my $db  = ROOT . &id2root( $collection, $id ) . "/$id.db";
 		
+		$carrell->do( qq( ATTACH "$db" AS 'item'; ) );
+		$carrell->do( qq( INSERT INTO titles   SELECT * FROM item.titles   WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO authors  SELECT * FROM item.authors  WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO pos      SELECT * FROM item.pos      WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO entities SELECT * FROM item.entities WHERE id IS '$id'; ) );
+		$carrell->do( qq( DETACH DATABASE 'item'; ) );
+
 		# update the zip file
 		$zip->addFile( $txt, "txt/$id.txt" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 		$zip->addFile( $ent, "ent/$id.ent" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 		$zip->addFile( $pos, "pos/$id.pos" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
-		
+
 	}
 	
 	# close the database connections
 	$carrell->disconnect;
-	$dbh->disconnect;
 
-	# add the newly created study carrell database to the zip file
+	# add the newly created study carrell database to the zip file and save
 	$zip->addFile( CARRELLDB, "etc/carrell.db" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
-	
-	# save
 	unless ( $zip->writeToFileNamed( ZIPFILE ) == AZ_OK ) { die "Can create " . ZIPFILE . " ($!). Error" }
 	
 	# done
@@ -229,7 +176,18 @@ sub results {
 
 <div class="col-9 col-m-9">
 
-<p>Done. You can now <a href='/tmp/search-results.zip'>download a zip file of your search results</a>. Thank you for using Project English.</p>
+<p>Done. You can now <a href='/tmp/search-results.zip'>download a zip file of your search results</a>.</p>
+
+<p>The linked zip file contains plain text files, an SQLite database, and a few scripts/programs written in Bash or Python. In order to take advantage of the download, you probably don't any additional software since your computer can probably already open/read the plain text files with your text editor and/or spreadsheet program. On the other hand, you will be able to get more out of the download if you also install additional pieces of software:</p>
+
+<ul>
+	<li><a href="http://openrefine.org">OpenRefine</a> - useful for reading &amp; analyzing the named-entity and parts-of-speech files; better than your spreadsheet, I promise</li>
+	<li><a href="http://www.laurenceanthony.net/software/antconc/">AntConc</a> - a concordance ("keyword-in-context") application for "reading" the plain text versions of the items in the corpus; very very useful but requires practice</li>
+	<li><a href="https://github.com/senderle/topic-modeling-tool">topic-modeling-tool</a> - sub-divides the items in the downloads into smaller collections based on "topics"</li>
+	<li><a href="https://www.sqlite.org/">SQLite</a> - a cross-platform relational database program</li>
+	<li><a href="https://anaconda.org/anaconda/python">Python</a> - a popular programming language which may already be on your computer but may reqiure additional modules to be installed</li>
+</ul>
+<p>Thank you for using Project English.</p>
 
 	<div class="footer">
 		<p style='text-align: right'>
@@ -295,82 +253,3 @@ sub form {
 EOF
 	
 }
-
-
-sub entities {
-
-	# get input
-	my $dbh  = shift;
-	my $file = shift;
-	
-	# prepare the database
-	my $sth = $dbh->prepare( "BEGIN TRANSACTION;" ) or die $DBI::errstr;
-	$sth->execute or die $DBI::errstr;
-	$sth = $dbh->prepare( "INSERT INTO entities ( 'id', 'sid', 'eid', 'entity', 'type' ) VALUES ( ?, ?, ?, ?, ? );" ) or die $DBI::errstr;
-
-	# open the given file
-	open FILE, " < $file" or die "Can't open $file ($!). Call Eric.\n";
-
-	# process each line in the file
-	my $counter = 0;
-	while ( <FILE> ) {
-
-		# increment; skip the first line
-		$counter++;
-		next if ( $counter == 1 );
-	
-		# parse, escape, and do the work
-		chop;
-		my ( $id, $sid, $eid, $entity, $type ) = split( "\t", $_ );
-		$entity =~ s/'/''/g;
-		$sth->execute( $id, $sid, $eid, $entity, $type ) or die $DBI::errstr;
-
-	}
-	
-	# close the database
-	$sth = $dbh->prepare( "END TRANSACTION;" ) or die $DBI::errstr;
-	$sth->execute or die $DBI::errstr;
-
- }
-
-
-sub pos {
-
-	# get input
-	my $dbh  = shift;
-	my $file = shift;
-	
-	# prepare the database
-	my $sth = $dbh->prepare( "BEGIN TRANSACTION;" ) or die $DBI::errstr;
-	$sth->execute or die $DBI::errstr;
-	$sth = $dbh->prepare( "INSERT INTO pos ( 'id', 'sid', 'tid', 'token', 'lemma', 'pos' ) VALUES ( ?, ?, ?, ?, ?, ? );" ) or die $DBI::errstr;
-
-	# open the given file
-	open FILE, " < $file" or die "Can't open $file ($!)\n";
-
-	# process each line in the file
-	my $counter = 0;
-	while ( <FILE> ) {
-
-		# increment; skip the first line
-		$counter++;
-		next if ( $counter == 1 );
-	
-		# parse, escape, and do the work
-		chop;
-		my ( $id, $sid, $tid, $token, $lemma, $pos ) = split( "\t", $_ );
-		$token =~ s/'/''/g;
-		$lemma =~ s/'/''/g;
-		$sth->execute( $id, $sid, $tid, $token, $lemma, $pos ) or die $DBI::errstr;
-
-	}
-	
-	# close the database
-	$sth = $dbh->prepare( "END TRANSACTION;" ) or die $DBI::errstr;
-	$sth->execute or die $DBI::errstr;
-
- }
-
-
-
-
