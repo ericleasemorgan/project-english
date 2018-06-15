@@ -6,6 +6,7 @@
 # (c) University of Notre Dame, distributed under a GNU Public License
 
 # April 23, 2018 - first investigations; 
+# June  15, 2018 - added special (study carrel) identiifer
 
 
 DATABASE = '../etc/english.db'
@@ -14,6 +15,7 @@ FREEBO   = '../collections/freebo/';
 ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
 GRAMMER  = 'NP: {<DT|PP\$>?<JJ.*>*<NN.*>+}\n{<JJ.*>*<NN*><CC>*<NN*>+}\n{<NNP>+}\n{<NN>+}'
+XYZZY    = '../carrels/xyzzy/etc/carrell.txt';
 
 # require
 from nltk import RegexpParser, sent_tokenize, pos_tag, word_tokenize, FreqDist
@@ -39,16 +41,22 @@ else :
 	# get input / initialize
 	id         = input[ 'id' ].value
 	parser     = RegexpParser( GRAMMER )
-	connection = sqlite3.connect( DATABASE )
-	cursor     = connection.cursor()
+	
+	# check for special identifier
+	if ( id == 'xyzzy' ) : file = XYZZY
+	else :
+	
+		# open the master database
+		connection = sqlite3.connect( DATABASE )
+		cursor     = connection.cursor()
 
-	# identify the collection of the given id
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
+		# identify the collection of the given id
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
 
-	if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
-	if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
-	if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
+		if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
+		if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
+		if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
 
 	# open and read the desired file
 	handle = open( file, 'r', encoding='utf-8' )

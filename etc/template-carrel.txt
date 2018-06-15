@@ -22,8 +22,8 @@
 
 <p>This page is a "study carrel" -- a student's personal space for reading &amp; studying their selected materials. It contains ##TOTAL## individual items. Use this page to become familiar with this collection. Ask yourself questions, and use the tools here to try to answer them.</p>
 
-<h2>Formats &amp; transformations</h2>
 
+<h2>Formats &amp; transformations</h2>
 <ol>
 <li><a href="./text/">text</a> - plain text files; used to do much of the text mining analysis below</li>
 <li><a href="./htm/">htm</a> - rudimentary HTML files; print these and write on the result</li>
@@ -31,11 +31,12 @@
 <li><a href="./xml/">xml</a> - original data</li>
 <li><a href="./ent/">named entities</a> - tabulations of people, places, &amp; organizations</li>
 <li><a href="./pos/">parts-of-speech</a> - tabulations of nouns, verbs, adjectives, etc.</li>
+<li><a href="./etc/carrell.db">database</a> - bibliographics, parts-of-speech, and named-entities in single SQLite file</li>
+<li><a href="./etc/carrell.txt">corpus</a> - all of plain text files concatenated into a single file</li>
 </ol>
 
 
 <h2>Downloads</h2>
-
 <table>
 <tr><td><form method='POST' action='/cgi-bin/ids2table.cgi'>
 <input type='hidden' name='ids' size='50' value='##IDS##'/>
@@ -43,76 +44,58 @@
 </form>
 </td><td><form method='POST' action='/cgi-bin/ids2zip.cgi'>
 <input type='hidden' name='ids' size='50' value='##IDS##'/>
-<input type='submit' value='Download search results' />
+<input type='submit' value='Download whole study carrel' />
 </form>
 </td><td><form method='POST' action='/cgi-bin/ids2tsv.cgi'>
 <input type='hidden' name='ids' size='50' value='##IDS##'/>
-<input type='submit' value='Get metadata' />
+<input type='submit' value='Get bibliographics' />
 </form>
 </td></tr>
 </table>
 
-<h2>Counts &amp; tabulations</h2>
 
-<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi'>
-<select name="id">
-##OPTIONS##
-</select>
-<select name="n">
-<option value='1'>uni-grams</option>
-<option value='2'>bigrams</option>
-<option value='3'>trigrams</option>
-</select>
-<input type='submit' value='Get ngrams' />
-</form>
+<h2>Simple counts &amp; tabulations</h2>
+<ul>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=xyzzy&n=1'>uni-grams</a> - individual words</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=xyzzy&n=2'>bi-grams</a> - two-word phrases </li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=xyzzy&n=3'>tri-grams</a> - three-word phrases</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=pos'>types of parts-of-speech</a> - nouns, verbs, adjectives, etc.</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=nouns'>nouns</a> - things</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=nounslemma'>lemmatized nouns</a> - things, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi?id=xyzzy'>noun phrases</a> - the subjects and objects of sentences</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=pronouns'>pronouns</a> - someone or something</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=pronounslemma'>lemmatized pronouns</a> - someone or something, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=verbs'>verbs</a> - actions</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=verbslemma'>lemmatized verbs</a> - actions, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=adjectives'>adjectives</a> - descriptors of things</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=adjectiveslemma'>lemmatized adjectives</a> - descriptors of things, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=adverbs'>adverbs - descriptions of actions</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=adverbslemma'>lemmatized adverbs</a> - descriptions of actions, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=entities'>types of named-entities</a> - people, places, things, etc.</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=people'<>people</a> - humans</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=places'>places</a> - locations</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=organizations'>organizations</a> - groups of humans</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=religions'>religions</a> - spirituality organizations</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=worksofart'>works of art</a> - creative manifestations</li>
+<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=xyzzy&type=languages'>languages</a> - types of human communication</li>
+</ul>
 
-<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi'>
-<select name="id">
-##OPTIONS##
-</select>
-<input type='submit' value='Get noun phrases' />
-</form>
 
-<h2>Word clouds</h2>
-<form method='POST' action='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi'>
-<select name="id">
-##OPTIONS##
-</select>
-<select name="element">
-<option value='PERSON'>people</option>
-<option value='NORP'>nationalities or religious or political groups</option>
-<option value='FACILITY'>buildings, airports, highways, bridges, etc.</option>
-<option value='ORG'>companies, agencies, institutions, etc.</option>
-<option value='GPE'>countries, cities, states</option>
-<option value='LANGUAGE'>named languages</option>
-<option value='DATE'>absolute or relative dates or periods</option>
-<option value='TIME'>times smaller than a day</option>
-</select>
-<input type='submit' value='Make cloud' />
-</form>
+<h2>Assertions</h2>
+<p>Given a lemmatized noun and a lemmatized verb, this form will output a list of positive or negative assertions in the form of noun-verb-(noun or adjective). This is useful for extracting the definitions of things, listing what things have, or listing what things do.</p><form method="GET" action="/cgi-bin/assert.cgi"><input type="hidden" name="id" value="xyzzy" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Lemmatized verb: <input type="text" name="verb" value="be" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List assertions" /></form>
 
-<h2>Dispersion plots</h2>
 
-<p>Enter one or more words to see where it/they occur in the text.</p>
-<form method='GET' action='http://cds.crc.nd.edu/cgi-bin/dispersion.cgi'><select name="id">
-##OPTIONS##
-</select>
+<h2>Descriptions</h2>
+<p>Given a lemmatized noun, this form will return a frequency list of two-word adjective phrases, thus "describing" the input. This is useful for gauging the sentiment towards a thing.</p><form method="GET" action="/cgi-bin/describe.cgi"><input type="hidden" name="id" value="xyzzy" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List descriptions" /></form>
+
+
+<h2>Dispersion plot</h2>
+<p>Enter one or more words to see where it/they occur in the corpus.</p>
+<form method='GET' action='http://cds.crc.nd.edu/cgi-bin/dispersion.cgi'><input type='hidden' name='id' value='xyzzy' />
 <input type='text' size='50' name='words' value='love honor truth justice god king man' /><input type='submit' value='Plot' />
 
 
-<h2>Log-likelihoods</h2>
-<form method='GET' action='/cgi-bin/likelihood.cgi'>
-<select name="analysis_id">
-##OPTIONS##
-</select>
-<select name="reference_id">
-##OPTIONS##
-</select>
-<input type='submit' value='Go' />
-</form>
-
-<h2>Topic models</h2>
-
+<h2>Topic model</h2>
 <p>Cluster/describe the documents in this study carrel in a number of ways:</p>
 <ul>
 <li>If there was a <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=1&dimensions=1'>single word</a> used to characterize this collection, then it might be...</li>
@@ -123,21 +106,18 @@
 <li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=10&dimensions=10'>ten words and five dimensions</a></li>
 <li>Characterize these documents with <a href='http://cds.crc.nd.edu/cgi-bin/model.cgi?topics=25&dimensions=1'>twenty-five words</a></li>
 </ul>
-
 <p>Or some other combination:</p>
-
 <form method="GET" action="/cgi-bin/model.cgi">Number of topics: <input name='topics' value='1' size='3' /> Number of dimensions: <input name='dimensions' value='1'  size='3' />  <input type="submit" value="Topic model" /></form>
 
-<h2>Visualizations/clusters</h2>
 
+<h2>Visualizations/clusters</h2>
 <p>Visualize (cluster) the given collection in one of two ways:</p><form method="GET" action="/cgi-bin/cluster.cgi"><input type="radio" name="graphic" value="cube" checked> cube</input> <input type="radio" name="graphic" value="dendrogram"> dendrogram</input> <input type='submit' value='Cluster' /></form>
 
-<h2>Concordances</h2>
+<h2>Concordance</h2>
 
+<p>Enter a word to see how it is used in the text -- a "keyword-in-context" index.</p>
 <form method='GET' action='/cgi-bin/concordance.cgi'>
-<select name="id">
-##OPTIONS##
-</select>
+<input type='hidden' name='id' value='xyzzy'/>
 <input type='text' name='word' value='love'/>
 <input type='submit' value='Concordance' />
 </form>

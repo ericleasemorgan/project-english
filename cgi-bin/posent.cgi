@@ -14,6 +14,7 @@ FREEBO   = '../collections/freebo/';
 ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
 ENGLISH  = '../etc/english.db'
+XYZZY    = '../carrels/xyzzy/etc/carrell.db';
 QUERIES  = { 'pos'            : "SELECT COUNT( pos )    AS f, pos     FROM pos                               GROUP BY pos    ORDER BY f DESC;",
             'nouns'           : "SELECT COUNT( token )  AS f, token   FROM pos      WHERE pos LIKE 'N%'      GROUP BY token  ORDER BY f DESC;",
             'nounslemma'      : "SELECT COUNT( lemma )  AS f, lemma   FROM pos      WHERE pos LIKE 'N%'      GROUP BY lemma  ORDER BY f DESC;",
@@ -78,14 +79,18 @@ else :
 	id   = input[ 'id' ].value
 	type = input[ 'type' ].value
 
-	# query the master database for the collection name, and then compute the location of the sub-database
-	connection = sqlite3.connect( ENGLISH )
-	cursor     = connection.cursor()
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
-	if collection == 'freebo' : database = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.db'
-	if collection == 'sabin'  : database = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.db'
-	if collection == 'ecco'   : database = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.db'
+	# trap for special identifier
+	if ( id == 'xyzzy' ) : database = XYZZY
+	else :
+	
+		# query the master database for the collection name, and then compute the location of the sub-database
+		connection = sqlite3.connect( ENGLISH )
+		cursor     = connection.cursor()
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
+		if collection == 'freebo' : database = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.db'
+		if collection == 'sabin'  : database = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.db'
+		if collection == 'ecco'   : database = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.db'
 	
 	# initialize output
 	print( 'Content-Type: text/plain\n' )

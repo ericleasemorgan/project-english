@@ -13,6 +13,8 @@ SQL      = 'SELECT collection FROM TITLES WHERE id=?'
 FREEBO   = '../collections/freebo/';
 ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
+XYZZY    = '../carrels/xyzzy/etc/carrell.txt';
+
 
 # require
 from nltk        import word_tokenize, ngrams, FreqDist
@@ -40,16 +42,22 @@ else :
 	id         = input[ 'id' ].value
 	n          = int( input[ 'n' ].value )
 	stopwords  = stopwords.words( 'english' )
-	connection = sqlite3.connect( DATABASE )
-	cursor     = connection.cursor()
 
-	# identify the collection of the given id
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
+	# trap special identifier
+	if ( id == 'xyzzy' ) : file = XYZZY
+	else :
+	
+		# open master database
+		connection = sqlite3.connect( DATABASE )
+		cursor     = connection.cursor()
+		
+		# identify the collection of the given id
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
 
-	if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
-	if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
-	if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
+		if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
+		if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
+		if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
 
 	# open and read the desired file
 	handle = open( file, 'r', encoding='utf-8' )

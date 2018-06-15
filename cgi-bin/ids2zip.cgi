@@ -136,6 +136,7 @@ else {
 	
 	# close the database connections
 	$carrell->disconnect;
+	$english->disconnect;
 
 	# add the newly created study carrell database to the zip file and save
 	$zip->addFile( CARRELLDB, "etc/carrell.db" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
@@ -169,8 +170,9 @@ sub results {
 <div class="col-3 col-m-3 menu">
   <ul>
     <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About and scope</a></li>
-	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/tools.html">Extra tools</a></li>
  </ul>
 </div>
 
@@ -223,8 +225,9 @@ sub form {
 <div class="col-3 col-m-3 menu">
   <ul>
     <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About and scope</a></li>
-	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/tools.html">Extra tools</a></li>
  </ul>
 </div>
 

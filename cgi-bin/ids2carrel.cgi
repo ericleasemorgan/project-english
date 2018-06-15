@@ -10,16 +10,20 @@
 
 
 # configure
-use constant CARRELS  => '../carrels';
-use constant CARREL   => 'xyzzy';
-use constant TEMPLATE => '../etc/template-carrel.txt';
-use constant QUERY    => qq( SELECT id, collection, title FROM titles WHERE ##CLAUSE##; );
-use constant ROOT     => '../../..';
-use constant SIZE     => 55;
+use constant CARRELLDB  => '../carrels/xyzzy/etc/carrell.db';
+use constant CARRELLTXT => '../carrels/xyzzy/etc/carrell.txt';
+use constant CARRELLSQL => '../etc/carrell.sql';
+use constant CARRELS    => '../carrels';
+use constant CARREL     => 'xyzzy';
+use constant DRIVER     => 'SQLite';
+use constant TEMPLATE   => '../etc/template-carrel.txt';
+use constant ROOT       => '../../..';
+use constant SIZE       => 55;
+use constant HOME       => 'http://cds.crc.nd.edu/carrels/xyzzy/home.html';
 
 # require
 use CGI;
-use CGI::Carp qw(fatalsToBrowser);
+use CGI::Carp qw( fatalsToBrowser );
 use File::Path qw( remove_tree );
 use strict;
 require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
@@ -67,31 +71,30 @@ else {
 	foreach my $id ( @ids ) { print IDS "$id\n"; }
 	close IDS;
 	
-	# build a query to search for collections
-	my @queries = ();
-	for my $id ( @ids ) { push( @queries, "id='$id'" ) }
-	my $sql =  QUERY;
-	$sql    =~ s/##CLAUSE##/join( ' OR ', @queries )/e;
+	# delete, open, and initialize a study carrel database
+	unlink( ( CARRELLDB ) );
+	my $database = CARRELLDB;
+	my $driver   = DRIVER;
+	my $carrell  = DBI->connect( "DBI:$driver:dbname=$database", '', '', { RaiseError => 1 } ) or die $DBI::errstr;
+	foreach my $statement ( split ";", &slurp( CARRELLSQL ) ) { $carrell->do( $statement ) }
 
-	# find all collections
-	my $dbh    = &connect2db;
-	my $handle = $dbh->prepare( $sql );
-	$handle->execute() or die $DBI::errstr;
+	# open a connect to the master database
+	my $english = &connect2db;
 
-	# process each item in the found set
-	my %ids = ();
-	while( my $item = $handle->fetchrow_hashref ) {
+	my $corpus = CARRELLTXT;
 	
-		# parse
-		my $collection = $$item{ 'collection' };
-		my $id         = $$item{ 'id' };
-		my $title      = substr( $$item{ 'title' }, 0, SIZE );
-		
-		# update the options
-		$ids{ $id } = "$title";
-		
-		# generate file names
+	# process each of the given ids
+	foreach my $id ( @ids ) {
+
+		# given the id, find its collection
+		my $handle = $english->prepare( "SELECT collection FROM titles WHERE id IS '$id'" );
+		$handle->execute() or die $DBI::errstr;
+ 		my $collection = $handle->fetchrow_array();
+ 		
+		# get the root of the individual item
 		my $root = ROOT . &id2root( $collection, $id );
+		
+		# symbolically link files locally
 		symlink( "$root/$id.htm",  "$directory/htm/$id.htm" );
 		symlink( "$root/$id.html", "$directory/html/$id.html" );
 		symlink( "$root/$id.txt",  "$directory/text/$id.txt" );
@@ -99,19 +102,32 @@ else {
 		symlink( "$root/$id.ent",  "$directory/ent/$id.ent" );
 		symlink( "$root/$id.pos",  "$directory/pos/$id.pos" );
 	
-	}
-
-	my $options = '';
-	foreach my $id ( sort{ $ids{ $b } <=> $ids{$a} } keys( %ids ) ) {
-	
-		my $title = $ids{ $id };
-		$options .= "<option value='$id'>$title ($id)</option>"
+		# build up the corpus
+		my $item = '../' . &id2root( $collection, $id ) . "/$id.txt";
+		open CORPUS, ">> $corpus" or die "Could not open $corpus ($!). Call Eric.\n";
+		open ITEM,   "< $item"    or die "Could not open $item ($!). Call Eric.\n";
+		print CORPUS $_ while <ITEM>;
+		print CORPUS "\n=====\n";
+		close ITEM;
+		close CORPUS;
+				
+		# generate the name of the item's database, and copy its contents
+		my $db  = '../' . &id2root( $collection, $id ) . "/$id.db";
+		$carrell->do( qq( ATTACH "$db" AS 'item'; ) );
+		$carrell->do( qq( INSERT INTO titles   SELECT * FROM item.titles   WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO authors  SELECT * FROM item.authors  WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO pos      SELECT * FROM item.pos      WHERE id IS '$id'; ) );
+		$carrell->do( qq( INSERT INTO entities SELECT * FROM item.entities WHERE id IS '$id'; ) );
+		$carrell->do( qq( DETACH DATABASE 'item'; ) );
 		
 	}
+
+	# close the database connections
+	$carrell->disconnect;
+	$english->disconnect;
 	
 	my $html = &slurp( TEMPLATE );
 	$html =~ s/##TOTAL##/scalar( @ids )/eg;
-	$html =~ s/##OPTIONS##/$options/g;
 	$html =~ s/##IDS##/$ids/g;
 	
 	open HTML, " > $directory/home.html" or die( "Can't open $directory/home.html ($!). Call Eric.\n" );
@@ -119,7 +135,7 @@ else {
 	close HTML;
 	
 	# done
-	print $cgi->redirect( 'http://cds.crc.nd.edu/carrels/xyzzy/home.html');
+	print $cgi->redirect( HOME );
 
 }
 
@@ -132,7 +148,7 @@ sub form {
 	return <<EOF
 <html>
 <head>
-<title>Project English - DCreate study carrel</title>
+<title>Project English - Create study carrel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/etc/style.css">
 </head>
@@ -144,8 +160,9 @@ sub form {
 <div class="col-3 col-m-3 menu">
   <ul>
     <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About and scope</a></li>
-	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/tools.html">Extra tools</a></li>
  </ul>
 </div>
 

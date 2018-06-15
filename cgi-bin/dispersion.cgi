@@ -16,6 +16,7 @@ SABIN    = '../collections/sabin/';
 IMAGE    = '../tmp/dispersion.jpg'
 XLABEL   = 'Word offsets'
 TITLE    = 'Lexical dispersion'
+XYZZY    = '../carrels/xyzzy/etc/carrell.txt';
 
 # require
 import matplotlib
@@ -42,16 +43,22 @@ else :
 	# get input / initialize
 	id         = input[ 'id' ].value
 	words      = input[ 'words' ].value.split()
-	connection = sqlite3.connect( DATABASE )
-	cursor     = connection.cursor()
+	
+	# check for special id
+	if ( id == 'xyzzy' ) : file = XYZZY
+	else :
+	
+		# open the master database
+		connection = sqlite3.connect( DATABASE )
+		cursor     = connection.cursor()
 
-	# identify the collection of the given id
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
+		# identify the collection of the given id
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
 
-	if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
-	if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
-	if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
+		if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
+		if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
+		if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
 
 	# open, read, and parse the desired file
 	handle   = open( file, 'r', encoding='utf-8' )

@@ -14,6 +14,7 @@ FREEBO   = '../collections/freebo/';
 ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
 WIDTH    = 80
+XYZZY    = '../carrels/xyzzy/etc/carrell.txt';
 
 # require
 from nltk        import *
@@ -40,16 +41,22 @@ else :
 	# get input / initialize
 	id         = input[ 'id' ].value
 	word       = input[ 'word' ].value
-	connection = sqlite3.connect( DATABASE )
-	cursor     = connection.cursor()
+	
+	# check for special identifier
+	if ( id == 'xyzzy' ) : file = XYZZY
+	else :
+	
+		# open master database
+		connection = sqlite3.connect( DATABASE )
+		cursor     = connection.cursor()
 
-	# identify the collection of the given id
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
+		# identify the collection of the given id
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
 
-	if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
-	if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
-	if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
+		if collection == 'freebo' : file = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.txt'
+		if collection == 'sabin'  : file = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.txt'
+		if collection == 'ecco'   : file = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.txt'
 
 	# open and read the desired file
 	handle  = open( file, 'r', encoding='utf-8' )

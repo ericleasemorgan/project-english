@@ -16,6 +16,7 @@ FREEBO   = '../collections/freebo/';
 ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
 ENGLISH  = '../etc/english.db'
+XYZZY    = '../carrels/xyzzy/etc/carrell.db';
 
 # require
 import cgi
@@ -42,14 +43,18 @@ else :
 	noun = input[ 'noun' ].value
 	type = input[ 'type' ].value
 
-	# query the master database for the collection name, and then compute the location of the sub-database
-	connection = sqlite3.connect( ENGLISH )
-	cursor     = connection.cursor()
-	cursor.execute( SQL, ( id, ) )
-	collection = cursor.fetchone()[0]
-	if collection == 'freebo' : database = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.db'
-	if collection == 'sabin'  : database = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.db'
-	if collection == 'ecco'   : database = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.db'
+	# check for special identifier
+	if ( id == 'xyzzy' ) : database = XYZZY
+	else :
+	
+		# query the master database for the collection name, and then compute the location of the sub-database
+		connection = sqlite3.connect( ENGLISH )
+		cursor     = connection.cursor()
+		cursor.execute( SQL, ( id, ) )
+		collection = cursor.fetchone()[0]
+		if collection == 'freebo' : database = FREEBO + id[0:3] + '/'                  + id + '/' + id + '.db'
+		if collection == 'sabin'  : database = SABIN  + id[3:6] + '/' + id[6:9]  + '/' + id + '/' + id + '.db'
+		if collection == 'ecco'   : database = ECCO   + id[0:2] + '/' + id[2:4]  + '/' + id + '/' + id + '.db'
 
 	# initialize the type of assertion, positive or negative
 	query = POSITIVE
