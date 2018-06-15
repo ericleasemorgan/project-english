@@ -14,6 +14,7 @@
 use constant CARRELLDB       => '../tmp/carrell.db';
 use constant CARRELLSQL      => '../etc/carrell.sql';
 use constant CLUSTER         => '../etc/search-results/bin/cluster.py';
+use constant ASSERT          => '../etc/search-results/bin/assert.sh';
 use constant DESCRIBE        => '../etc/search-results/bin/describe.sh';
 use constant DESCRIBES       => '../etc/search-results/bin/describe-sequentially.sh';
 use constant DRIVER          => 'SQLite';
@@ -78,6 +79,7 @@ else {
 	# create bin directory and add scripts
 	$zip->addDirectory( 'bin/' );
 	$zip->addFile( CLUSTER, "bin/cluster.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
+	$zip->addFile( ASSERT, "bin/assert.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( DESCRIBE, "bin/describe.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( DESCRIBES, "bin/describe-sequentially.sh" )->desiredCompressionMethod( COMPRESSION_DEFLATED );
 	$zip->addFile( MODEL, "bin/model.py" )->desiredCompressionMethod( COMPRESSION_DEFLATED );

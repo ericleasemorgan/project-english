@@ -13,21 +13,20 @@ create TABLE authors (
 
 -- titles
 CREATE TABLE titles (
-	century    INT,
-	city       TEXT,
-	collection TEXT,
-	date       TEXT,
-	extent     TEXT,
-	id         TEXT PRIMARY KEY,
-	imprint    TEXT,
-	language   TEXT,
-	pages      INT,
-	place      TEXT,
-	publisher  TEXT,
-	title      TEXT,
-	words      INT,
-	year       INT,
-	url        TEXT
+  century     INT,
+  city        TEXT,
+  collection  TEXT,
+  date        TEXT,
+  extent      TEXT,
+  id          TEXT PRIMARY KEY,
+  imprint     TEXT,
+  language    TEXT,
+  pages       INT,
+  place       TEXT,
+  publisher   TEXT,
+  title       TEXT,
+  words       INT,
+  year        INT
 );
 
 -- named entities

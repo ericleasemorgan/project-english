@@ -14,22 +14,40 @@ DB='sqlite3 ./etc/carrell.db'
 HEADER=".mode tabs\n"
 
 # sanity check
-if [[ -z $1 || -z $2 ]]; then
-	echo "Usage: $0 <noun> <number>"
+if [[ -z $1 ]]; then
+	echo "Usage: $0 <lemmatized noun>"
 	exit
 fi
 
-QUERY="SELECT COUNT(t.token) AS frequency, t.token AS adjective
+QUERY="SELECT COUNT( LOWER( c.token || ' ' || t.token ) ) AS frequency, ( LOWER( t.token || ' ' || c.token ) ) AS phrase
 FROM pos AS t
 JOIN pos AS c
 ON c.tid=t.tid+1 AND c.sid=t.sid AND c.id=t.id
 WHERE t.pos LIKE 'J%'
-AND c.token='$1'
-GROUP BY t.token
-ORDER BY frequency DESC, t.token ASC
-LIMIT $2"
+AND c.lemma='$1'
+GROUP BY LOWER( t.token || ' ' || c.token )
+ORDER BY frequency DESC, LOWER( t.token || ' ' || c.token ) ASC;"
 
 # set up, debug, do the work, and done
-echo "$1 is described as ____, as in 'The _____ $1...'"
+echo "Positive descriptions of $1"
 echo -e "$HEADER$QUERY" | $DB
+echo
+
+QUERY="SELECT COUNT(t.token) AS frequency, ( LOWER( d.token || ' ' || t.token || ' ' || c.token ) ) AS phrase
+FROM pos AS t
+JOIN pos AS c
+ON c.tid=t.tid+1 AND c.sid=t.sid AND c.id=t.id
+JOIN pos AS d
+ON d.tid=t.tid-1 AND d.sid=t.sid AND d.id=t.id
+WHERE t.pos LIKE 'J%'
+AND c.token='$1'
+AND ( d.token IS 'no' OR d.token IS 'not' )
+GROUP BY LOWER( d.token || ' ' || t.token || ' ' || c.token )
+ORDER BY frequency DESC, LOWER( d.token || ' ' || t.token || ' ' || c.token ) ASC;"
+
+# set up, debug, do the work, and done
+echo "Negative descriptions of $1"
+echo -e "$HEADER$QUERY" | $DB
+echo
+
 exit
