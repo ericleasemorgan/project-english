@@ -79,6 +79,10 @@
 <p>Given a lemmatized noun, this form will return a frequency list of two-word adjective phrases, thus "describing" the input. This is useful for gauging the sentiment towards a thing.</p><form method="GET" action="/cgi-bin/describe.cgi"><input type="hidden" name="id" value="##ID##" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List descriptions" /></form>
 
 
+<h2>Compare &amp; contrast</h2>
+<p>Given a type of conjunction (and, or, not, or but) as well as a particular part-of-speech (noun, verb, or adjective), this tool will list the frequency of conjunctions allowing the reader to answer the question, "What &amp; how are things compared &amp; contrasted in this text/corpus?"</p><form method="GET" action="/cgi-bin/compare.cgi"><input type="hidden" name="id" value="##ID##" />Type of comparison: <input type="radio" name="type" value="N" checked='checked'> noun</input>  <input type="radio" name="type" value="V"> verb</input>  <input type="radio" name="type" value="J"> adjective</input><br /><input type="submit" value="List comparisons" /></form>
+
+
 <h2>Word clouds</h2>
 <ul>
 <li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=PERSON'>people</a></li>

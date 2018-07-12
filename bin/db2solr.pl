@@ -81,6 +81,12 @@ my $handle = $dbh->prepare( qq(SELECT * FROM authors WHERE id='$key';) );
 $handle->execute() or die $DBI::errstr;
 while( my $results = $handle->fetchrow_hashref ) { push( @authors, $$results{ 'author' } ) }
 
+# find the given title's lcsh subject headings
+my @subjects = ();
+my $handle   = $dbh->prepare( qq(SELECT * FROM lcsh WHERE id='$key';) );
+$handle->execute() or die $DBI::errstr;
+while( my $results = $handle->fetchrow_hashref ) { push( @subjects, $$results{ 'subject' } ) }
+
 # debug; dump
 binmode( STDOUT, ':utf8' );
 warn "        city: $city\n";
@@ -99,6 +105,7 @@ warn "       words: $words\n";
 warn "        year: $year\n";
 warn "     century: $century\n";
 warn "   author(s): " . join( '; ', @authors ) . "\n";
+warn "  subject(s): " . join( '; ', @subjects ) . "\n";
 warn "\n";
 
 # initialize indexing
@@ -136,6 +143,13 @@ foreach ( @authors ) {
 
 	$doc->add_fields(( WebService::Solr::Field->new( 'author'       => $_ )));
 	$doc->add_fields(( WebService::Solr::Field->new( 'facet_author' => $_ )));
+	
+}
+
+# add complex fields
+foreach ( @subjects ) {
+
+	$doc->add_fields(( WebService::Solr::Field->new( 'subject' => $_ )));
 	
 }
 

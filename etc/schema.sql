@@ -20,3 +20,10 @@ create TABLE authors (
   id          TEXT,
   author      TEXT	
 );
+
+create table lcsh (
+	collection TEXT, 
+	id         TEXT,
+	type       TEXT,
+	subject    TEXT
+);

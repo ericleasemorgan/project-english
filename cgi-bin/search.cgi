@@ -10,17 +10,20 @@
 # March     8, 2017 - faceted on many things; can you say, "creeping featuritis"? 
 # March     9, 2017 - added ability to download tsv of search results metadata
 # July     19, 2017 - beginning to add styling; at the cabin!
+# June     25, 2018 - added subjects, even with Roman numerals
+# July     12, 2018 - aded ability to list URLs of search results; removed "metadata download"
 
 
 # configure
 use constant HOME           => 'http://cds.crc.nd.edu/';
 use constant FACETFIELD     => ( 'facet_author', 'facet_collection', 'facet_language', 'facet_city', 'facet_century', 'facet_year' );
-use constant FIELDS         => 'id,collection,title,author,imprint,extent';
+use constant FIELDS         => 'id,collection,title,author,imprint,extent,subject';
 use constant FREEBO         => '/collections/freebo';
 use constant ECCO           => '/collections/ecco';
 use constant SABIN          => '/collections/sabin';
 use constant ROWS           => 199;
 use constant SOLR           => 'http://localhost:8983/solr/english';
+use constant NUMERALS       => ( '1'=>'I','2'=>'II','3'=>'III','4'=>'IV', '5'=>'V', '6'=>'VI', '7'=>'VII', '8'=>'VIII', '9'=>'IX', '10'=>'X' );
 
 # require
 use CGI;
@@ -31,10 +34,11 @@ use WebService::Solr;
 use URI::Encode qw(uri_encode uri_decode);
 
 # initialize
-my $cgi   = CGI->new;
-my $query = $cgi->param( 'query' );
-my $html  = &template;
-my $solr  = WebService::Solr->new( SOLR );
+my $cgi      = CGI->new;
+my $query    = $cgi->param( 'query' );
+my $html     = &template;
+my $solr     = WebService::Solr->new( SOLR );
+my %numerals = NUMERALS;
 
 # sanitize query
 my $sanitized = HTML::Entities::encode($query);
@@ -189,10 +193,28 @@ else {
 		my $authors = '';
 		for ( my $i = 0; $i < scalar( @authors ); $i++ ) { $authors .= $i +1 . '. ' . @authors[ $i ] . ' ' }
 		
+		my @subjects = ();
+		foreach my $subject ( $doc->values_for( 'subject' ) ) {
+		
+			my $subject = qq(<a href='/cgi-bin/search.cgi?query=subject:"$subject"'>$subject</a>);
+			push( @subjects, $subject );
+
+		}
+
+		# create a cool list of authors, a la catalog cards
+		my $subjects = '';
+		for ( my $i = 0; $i < scalar( @subjects ); $i++ ) {
+		
+			my $numeral = $numerals{ $i + 1 };
+			$subjects .= $numeral . '. ' . @subjects[ $i ] . ' ';
+			
+		}
+		
 		# create a item
-		my $item = &item( $imprint, $extent, scalar( @authors ) );
+		my $item = &item( $imprint, $extent, scalar( @authors ), scalar( @subjects ) );
 		$item =~ s/##TITLE##/$title/g;
 		$item =~ s/##AUTHORS##/$authors/eg;
+		$item =~ s/##SUBJECTS##/$subjects/eg;
 		$item =~ s/##DETAILS##/$details/e;
 		$item =~ s/##ID##/$id/e;
 		$item =~ s/##IMPRINT##/$imprint/e;
@@ -204,8 +226,8 @@ else {
 	}	
 
 	# populate forms
-	my $id2tsv     =  &ids2tsv;
-	$id2tsv        =~ s/##IDS##/join( ' ', @ids )/e;
+	my $id2urls    =  &ids2urls;
+	$id2urls        =~ s/##IDS##/join( ' ', @ids )/e;
 	my $id2table   =  &ids2table;
 	$id2table      =~ s/##IDS##/join( ' ', @ids )/e;
 	my $id2zip     =  &ids2zip;
@@ -216,7 +238,7 @@ else {
 	# build the html
 	$html =  &results_template;
 	$html =~ s/##RESULTS##/&results/e;
-	$html =~ s/##ID2TSV##/$id2tsv/ge;
+	$html =~ s/##ID2URLS##/$id2urls/ge;
 	$html =~ s/##ID2TABLE##/$id2table/ge;
 	$html =~ s/##ID2ZIP##/$id2zip/ge;
 	$html =~ s/##ID2CARREL##/$ids2carrel/ge;
@@ -267,7 +289,7 @@ sub results {
 	return <<EOF
 	<p>Your search found ##TOTAL## item(s) and ##HITS## item(s) are displayed.</p>
 	
-	<p>##ID2TABLE## | ##ID2TSV## | ##ID2ZIP## | ##ID2CARREL##</p>
+	<p>##ID2TABLE## | ##ID2URLS## | ##ID2ZIP## | ##ID2CARREL##</p>
 	
 	<h3>Items</h3><ol>##ITEMS##</ol>
 EOF
@@ -278,17 +300,19 @@ EOF
 # specific item template
 sub item {
 
-	my $imprint = shift;
-	my $extent  = shift;
-	my $authors = shift;
-	my $item    = "<li class='item'>##TITLE## (<a href='##DETAILS##'>##ID##</a>)<ul>";
+	my $imprint  = shift;
+	my $extent   = shift;
+	my $authors  = shift;
+	my $subjects = shift;
+	my $item     = "<li class='item'>##TITLE## (<a href='##DETAILS##'>##ID##</a>)<ul>";
 	
 	if ( $imprint ) { $item .= "<li style='list-style-type:circle'>##IMPRINT##</li>" }
 	if ( $extent )  { $item .= "<li style='list-style-type:circle'>##EXTENT##</li>" }
 	
 	$item .= "</ul>";
 	
-	if ( $authors ) { $item .= "##AUTHORS##" }
+	if ( $authors )  { $item .= "##AUTHORS##" }
+	if ( $subjects ) { $item .= "##SUBJECTS##" }
 	
 	$item .= "</li>";
 	
@@ -409,10 +433,10 @@ EOF
 
 }
 
-sub ids2tsv {
+sub ids2urls {
 
 	return <<EOF
-<a href="/cgi-bin/ids2tsv.cgi?ids=##IDS##">Download metadata</a>
+<a href="/cgi-bin/ids2urls.cgi?ids=##IDS##">List URLs</a>
 EOF
 
 }

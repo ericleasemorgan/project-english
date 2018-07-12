@@ -1,4 +1,4 @@
-#!/afs/crc.nd.edu/user/e/emorgan/local/anaconda/bin/python
+#!/usr/local/anaconda/bin/python
 
 # txt2pos.py - given a plain text file, output a tab-delimited file of parts-of-speech
 
@@ -19,7 +19,7 @@ file = sys.argv[ 1 ]
 nlp  = spacy.load( 'en' )
 
 # limit ourselves is a few processors only
-os.system( "taskset -pc 0-1 %d > /dev/null" % os.getpid() )
+#os.system( "taskset -pc 0-1 %d > /dev/null" % os.getpid() )
 
 # open the given file and unwrap it
 handle = open( file, 'r' )

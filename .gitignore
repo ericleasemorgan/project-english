@@ -5,3 +5,4 @@ etc/english.db
 etc/jquery-3.0.0.min.js
 log/
 tmp/
+etc/*.vec

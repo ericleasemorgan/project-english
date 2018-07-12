@@ -11,6 +11,8 @@
 # configure
 use constant VERBOSE   => 0;
 use constant STOPWORDS => '../etc/stopwords-en.txt';
+use constant CARRELLDB => '../carrels/xyzzy/etc/carrell.db';
+use constant DRIVER     => 'SQLite';
 
 # require
 use strict;
@@ -19,16 +21,41 @@ use CGI::Carp qw(fatalsToBrowser);
 require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
 
 # initialize
-my $cgi          = CGI->new;
-my $analysis_id  = $cgi->param( 'analysis_id' );
-my $reference_id = $cgi->param( 'reference_id' );
-my $html         = '';
+my $cgi  = CGI->new;
+my $id   = $cgi->param( 'id' );
+my $html = '';
 
 # check for input
-if ( ! $analysis_id | ! $reference_id ) {
+if ( ! $id ) {
 
-	$html =  &template;
+	my $database = CARRELLDB;
+	my $driver   = DRIVER;
+	my $dbh = DBI->connect( "DBI:$driver:dbname=$database", '', '', { RaiseError => 1 } ) or die $DBI::errstr;
+	my $handle = $dbh->prepare( 'SELECT id, title FROM titles;' );
+	my $result = $handle->execute() or die $DBI::errstr;
+	my %ids = ();
+	foreach my $row ( handle->fetchrow_hashref ) {
+	
+		# parse
+		my $id         = $$row{ 'id' };
+		my $title      = substr( $$item{ 'title' }, 0, SIZE );
+
+		# update the options
+		$ids{ $id } = "$title";
+ 
+	}
+
+	my $options = '';
+	foreach my $id ( sort{ $ids{ $b } <=> $ids{$a} } keys( %ids ) ) {
+
+		my $title = $ids{ $id };
+		$options .= "<option value='$id'>$title ($id)</option>"
+		
+	 }
+
+	$html =  &template();
 	$html =~ s/##CONTENT##/&home/e }
+	$html =~ s/##OPTIONS##/$options/g;
 
 # process the input
 else {
@@ -173,18 +200,6 @@ print $html;
 exit;
 
 
-sub result {
-
-	return <<EOF
-<p>These are the Log-likelihood ratios for the "great ideas" found in TCP identifer ##DID##. In other words, this service answers the question, "Relative to a set of 100 great ideas, what are the emphases of this particular text?"</p>
-<p><img align='right' src='./tmp/cloud.png' /></p>
-<table cellpadding='2'>
-##ROWS##
-</table>
-EOF
-
-}
-
 
 sub home {
 
@@ -192,8 +207,8 @@ sub home {
 <p>Given two Project English identifiers, this form will return the log-likelihood ratio (G2) for all the words in first document of the given identifiers. Words with higher G2 ratio are more significant for the first document when compared to the second. Words with lower G2 ratio are less significant. Log-likelihood ratios help answer questions like, "What is significant in this text but not the other? How can I characterize this text? What are some of this text's more unique qualities? What make it different?" The following form will compare &amp; contrast Shakespeare's <cite>Hamlet</cite> with the same author's <cite>The Merry Wives of Windsor</cite>.</p>
 
 <form method='GET' action='/cgi-bin/likelihood.cgi'>
-Analysis ID: <input type='text' name='analysis_id' value='A59527' /><br />
-Reference ID: <input type='text' name='reference_id' value='A11988' /><br />
+Analysis ID: <input type='text' name='id' value='A59527' /><br />
+Reference ID's: <input type='text' name='reference_ids' value='A11988' /><br />
 <input type='submit' value='Go' />
 </form>
 

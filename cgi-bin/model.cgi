@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/anaconda/bin/python
 
 # model.cgi- given two integers, apply topic modeling against a configured directory of text files
 
