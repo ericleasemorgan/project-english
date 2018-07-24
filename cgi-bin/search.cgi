@@ -18,9 +18,9 @@
 use constant HOME           => 'http://cds.crc.nd.edu/';
 use constant FACETFIELD     => ( 'facet_author', 'facet_collection', 'facet_language', 'facet_city', 'facet_century', 'facet_year' );
 use constant FIELDS         => 'id,collection,title,author,imprint,extent,subject';
-use constant FREEBO         => '/collections/freebo';
-use constant ECCO           => '/collections/ecco';
-use constant SABIN          => '/collections/sabin';
+use constant FREEBO         => '/english/collections/freebo';
+use constant ECCO           => '/english/collections/ecco';
+use constant SABIN          => '/english/collections/sabin';
 use constant ROWS           => 199;
 use constant SOLR           => 'http://localhost:8983/solr/english';
 use constant NUMERALS       => ( '1'=>'I','2'=>'II','3'=>'III','4'=>'IV', '5'=>'V', '6'=>'VI', '7'=>'VII', '8'=>'VIII', '9'=>'IX', '10'=>'X' );

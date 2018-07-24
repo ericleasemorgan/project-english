@@ -10,13 +10,13 @@
 
 
 # configure
-use constant COLLECTIONS => '/afs/crc.nd.edu/user/e/emorgan/local/english/collections';
-use constant TEMPLATE    => '/afs/crc.nd.edu/user/e/emorgan/local/english/etc/template-html.txt';
+use constant COLLECTIONS => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections';
+use constant TEMPLATE    => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/etc/template-html.txt';
 
 # require
 use DBI;
 use strict;
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 # sanity check
 my $key = $ARGV[ 0 ];

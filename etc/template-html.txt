@@ -3,7 +3,7 @@
 <head>
 <title>Project English - ##TITLE##</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
+    <li><a href="/english/home.html">Home</a></li>
   </ul>
 </div>
 
@@ -47,74 +47,74 @@
 
 <h2>Simple counts &amp; tabulations</h2>
 <ul>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=1'>uni-grams</a> - individual words</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=2'>bi-grams</a> - two-word phrases </li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2ngrams.cgi?id=##ID##&n=3'>tri-grams</a> - three-word phrases</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=pos'>types of parts-of-speech</a> - nouns, verbs, adjectives, etc.</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=nouns'>nouns</a> - things</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=nounslemma'>lemmatized nouns</a> - things, lemmatized</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2nounphrases.cgi?id=##ID##'>noun phrases</a> - the subjects and objects of sentences</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=pronouns'>pronouns</a> - someone or something</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=pronounslemma'>lemmatized pronouns</a> - someone or something, lemmatized</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=verbs'>verbs</a> - actions</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=verbslemma'>lemmatized verbs</a> - actions, lemmatized</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=adjectives'>adjectives</a> - descriptors of things</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=adjectiveslemma'>lemmatized adjectives</a> - descriptors of things, lemmatized</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=adverbs'>adverbs - descriptions of actions</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=adverbslemma'>lemmatized adverbs</a> - descriptions of actions, lemmatized</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=entities'>types of named-entities</a> - people, places, things, etc.</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=people'<>people</a> - humans</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=places'>places</a> - locations</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=organizations'>organizations</a> - groups of humans</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=religions'>religions</a> - spirituality organizations</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=worksofart'>works of art</a> - creative manifestations</li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/posent.cgi?id=##ID##&type=languages'>languages</a> - types of human communication</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2ngrams.cgi?id=##ID##&n=1'>uni-grams</a> - individual words</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2ngrams.cgi?id=##ID##&n=2'>bi-grams</a> - two-word phrases </li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2ngrams.cgi?id=##ID##&n=3'>tri-grams</a> - three-word phrases</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=pos'>types of parts-of-speech</a> - nouns, verbs, adjectives, etc.</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=nouns'>nouns</a> - things</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=nounslemma'>lemmatized nouns</a> - things, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2nounphrases.cgi?id=##ID##'>noun phrases</a> - the subjects and objects of sentences</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=pronouns'>pronouns</a> - someone or something</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=pronounslemma'>lemmatized pronouns</a> - someone or something, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=verbs'>verbs</a> - actions</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=verbslemma'>lemmatized verbs</a> - actions, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=adjectives'>adjectives</a> - descriptors of things</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=adjectiveslemma'>lemmatized adjectives</a> - descriptors of things, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=adverbs'>adverbs - descriptions of actions</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=adverbslemma'>lemmatized adverbs</a> - descriptions of actions, lemmatized</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=entities'>types of named-entities</a> - people, places, things, etc.</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=people'<>people</a> - humans</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=places'>places</a> - locations</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=organizations'>organizations</a> - groups of humans</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=religions'>religions</a> - spirituality organizations</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=worksofart'>works of art</a> - creative manifestations</li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/posent.cgi?id=##ID##&type=languages'>languages</a> - types of human communication</li>
 </ul>
 
 
 <h2>Assertions</h2>
-<p>Given a lemmatized noun and a lemmatized verb, this form will output a list positive or negative assertions in the form of noun-verb-(noun or adjective). This is useful for extracting the definitions of things, listing what things have, or listing what things do.</p><form method="GET" action="/cgi-bin/assert.cgi"><input type="hidden" name="id" value="##ID##" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Lemmatized verb: <input type="text" name="verb" value="be" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List assertions" /></form>
+<p>Given a lemmatized noun and a lemmatized verb, this form will output a list positive or negative assertions in the form of noun-verb-(noun or adjective). This is useful for extracting the definitions of things, listing what things have, or listing what things do.</p><form method="GET" action="/english/cgi-bin/assert.cgi"><input type="hidden" name="id" value="##ID##" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Lemmatized verb: <input type="text" name="verb" value="be" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List assertions" /></form>
 
 <h2>Descriptions</h2>
-<p>Given a lemmatized noun, this form will return a frequency list of two-word adjective phrases, thus "describing" the input. This is useful for gauging the sentiment towards a thing.</p><form method="GET" action="/cgi-bin/describe.cgi"><input type="hidden" name="id" value="##ID##" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List descriptions" /></form>
+<p>Given a lemmatized noun, this form will return a frequency list of two-word adjective phrases, thus "describing" the input. This is useful for gauging the sentiment towards a thing.</p><form method="GET" action="/english/cgi-bin/describe.cgi"><input type="hidden" name="id" value="##ID##" />Lemmatized noun: <input type="text" name="noun" value="man" /><br />Type: <input type='radio' name='type' value='positive' checked='checked'>positive</input> <input type='radio' name='type' value='negative'>negative</input><br /><input type="submit" value="List descriptions" /></form>
 
 
 <h2>Compare &amp; contrast</h2>
-<p>Given a type of conjunction (and, or, not, or but) as well as a particular part-of-speech (noun, verb, or adjective), this tool will list the frequency of conjunctions allowing the reader to answer the question, "What &amp; how are things compared &amp; contrasted in this text/corpus?"</p><form method="GET" action="/cgi-bin/compare.cgi"><input type="hidden" name="id" value="##ID##" />Type of comparison: <input type="radio" name="type" value="N" checked='checked'> noun</input>  <input type="radio" name="type" value="V"> verb</input>  <input type="radio" name="type" value="J"> adjective</input><br /><input type="submit" value="List comparisons" /></form>
+<p>Given a type of conjunction (and, or, not, or but) as well as a particular part-of-speech (noun, verb, or adjective), this tool will list the frequency of conjunctions allowing the reader to answer the question, "What &amp; how are things compared &amp; contrasted in this text/corpus?"</p><form method="GET" action="/english/cgi-bin/compare.cgi"><input type="hidden" name="id" value="##ID##" />Type of comparison: <input type="radio" name="type" value="N" checked='checked'> noun</input>  <input type="radio" name="type" value="V"> verb</input>  <input type="radio" name="type" value="J"> adjective</input><br /><input type="submit" value="List comparisons" /></form>
 
 
 <h2>Word clouds</h2>
 <ul>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=PERSON'>people</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=NORP'>nationalities or religious or political groups</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=FACILITY'>buildings, airports, highways, bridges, etc.</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=ORG'>companies, agencies, institutions, etc.</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=GPE'>countries, cities, states</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=LANGUAGE'>named languages</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=DATE'>absolute or relative dates or periods</a></li>
-<li><a href='http://cds.crc.nd.edu/cgi-bin/id2cloud.cgi?id=##ID##&element=TIME'>times smaller than a day</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=PERSON'>people</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=NORP'>nationalities or religious or political groups</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=FACILITY'>buildings, airports, highways, bridges, etc.</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=ORG'>companies, agencies, institutions, etc.</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=GPE'>countries, cities, states</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=LANGUAGE'>named languages</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=DATE'>absolute or relative dates or periods</a></li>
+<li><a href='http://cds.crc.nd.edu/english/cgi-bin/id2cloud.cgi?id=##ID##&element=TIME'>times smaller than a day</a></li>
 </ul>
 
 <h2>Dispersion plots</h2>
 
 <p>Enter one or more words to see where it/they occur in the text.</p>
-<form method='GET' action='http://cds.crc.nd.edu/cgi-bin/dispersion.cgi'><input type='hidden' name='id' value='##ID##' /><input type='text' size='50' name='words' value='love honor truth justice god king man' /><input type='submit' value='Plot' />
+<form method='GET' action='http://cds.crc.nd.edu/english/cgi-bin/dispersion.cgi'><input type='hidden' name='id' value='##ID##' /><input type='text' size='50' name='words' value='love honor truth justice god king man' /><input type='submit' value='Plot' />
 
 
 <h2>Log-likelihood</h2>
 <p>Use log-likelihood ratios to compare &amp; contrast this item with any other Project English item, or Shakespeare's <cite>Hamlet</cite> by default.</p>
-<form method='GET' action='/cgi-bin/likelihood.cgi'><input type='hidden' name='analysis_id' value='##ID##' />Project English identifier: <input type='text' name='reference_id' value='A59527' /><input type='submit' value='Go' />
+<form method='GET' action='/english/cgi-bin/likelihood.cgi'><input type='hidden' name='analysis_id' value='##ID##' />Project English identifier: <input type='text' name='reference_id' value='A59527' /><input type='submit' value='Go' />
 </form>
 
 <h2>Simple concordance</h2>
 <p>Use this simple concordance to list the lines containing the given word in this text.</p>
-<form method='GET' action='/cgi-bin/concordance.cgi'><input type='hidden' name='id' value='##ID##' />Word: <input type="text" name="word" value="love"/> <input type="submit" value="List lines" /></form>
+<form method='GET' action='/english/cgi-bin/concordance.cgi'><input type='hidden' name='id' value='##ID##' />Word: <input type="text" name="word" value="love"/> <input type="submit" value="List lines" /></form>
 
 
 <div class="footer">
 	<p style='text-align: right'>
 	Eric Lease Morgan &amp; Team Project English<br />
-	May 24, 2018
+	July 24, 2018
 	</p>
 </div>
 

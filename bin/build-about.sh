@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 ABOUT='./about'
 DB='./etc/english.db'
 CATALOG="./about/catalog.tsv"
@@ -105,7 +105,7 @@ EOF
 
 # create graphs
 cd $ABOUT
-../bin/graph-catalog.R
+../english/bin/graph-catalog.R
 
 # build the html
 HTML="<html>
@@ -113,7 +113,7 @@ HTML="<html>
 <head>
 <title>Project English - About and scope</title>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<link rel='stylesheet' href='/etc/style.css'>
+<link rel='stylesheet' href='/english/etc/style.css'>
 </head>
 
 <body>
@@ -124,9 +124,9 @@ HTML="<html>
 
 <div class='col-3 col-m-3 menu'>
   <ul>
-    <li><a href='/home.html'>Home</a></li>
-    <li><a href='/about/'>About and scope</a></li>
-    <li><a href='/cgi-bin/search.cgi'>Search</a></li>
+    <li><a href='/english/home.html'>Home</a></li>
+    <li><a href='/english/about/'>About and scope</a></li>
+    <li><a href='/english/cgi-bin/search.cgi'>Search</a></li>
   </ul>
 </div>
 
@@ -138,33 +138,33 @@ HTML="<html>
 <p>The whole collection is currently made up of approximately $TOTALCOLLECTIONITEMS thousand items, $TOTALCOLLECIONPAGES thousand pages, and $TOTALCOLLECTIONWORDS billion words. Which means, on average, each item is about $AVGERAGECOLLECIONPAGES pages (or $AVERAGECOLLECTIONWORDS words) long. There are $COUNTCOLLECTIONLANGUAGES distinct languages represented in the collection, but for all intents &amp; purposes, English is the only language. Similarly, there are $COUNTCOLLECTIONCITIES distinct cities of publication, but about 75% of them are either London, Boston, Dublin, Edinburgh, New York, or Philadelphia.</p>
 
 <table>
-<tr><td><img width='400' src='/about/catalog-histogram-pages.png' /></td><td><img width='400' src='/about/catalog-boxplot-pages.png' /></td></tr>
-<tr><td><img width='400' src='/about/catalog-histogram-words.png' /></td><td><img width='400' src='/about/catalog-boxplot-words.png' /></td></tr>
-<tr><td><img width='400' src='/about/catalog-histogram-years.png' /></td><td><img width='400' src='/about/catalog-boxplot-years.png' /></td></tr>
-<tr><td><img width='400' src='/about/catalog-pie-collections.png' /></td><td><img width='400' src='/about/catalog-pie-centuries.png' /></td></tr>
-<tr><td><img width='400' src='/about/catalog-pie-languages.png' /></td><td><img width='400' src='/about/catalog-pie-cities.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/catalog-histogram-pages.png' /></td><td><img width='400' src='/english/about/catalog-boxplot-pages.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/catalog-histogram-words.png' /></td><td><img width='400' src='/english/about/catalog-boxplot-words.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/catalog-histogram-years.png' /></td><td><img width='400' src='/english/about/catalog-boxplot-years.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/catalog-pie-collections.png' /></td><td><img width='400' src='/english/about/catalog-pie-centuries.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/catalog-pie-languages.png' /></td><td><img width='400' src='/english/about/catalog-pie-cities.png' /></td></tr>
 </table>
 
 <h2>Freebo</h2>
 <table>
-<tr><td><img width='400' src='/about/freebo-histogram-years.png' /></td><td><img width='400' src='/about/freebo-boxplot-years.png' /></td></tr>
-<tr><td><img width='400' src='/about/freebo-histogram-pages.png' /></td><td><img width='400' src='/about/freebo-boxplot-pages.png' /></td></tr>
-<tr><td><img width='400' src='/about/freebo-histogram-words.png' /></td><td><img width='400' src='/about/freebo-boxplot-words.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/freebo-histogram-years.png' /></td><td><img width='400' src='/english/about/freebo-boxplot-years.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/freebo-histogram-pages.png' /></td><td><img width='400' src='/english/about/freebo-boxplot-pages.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/freebo-histogram-words.png' /></td><td><img width='400' src='/english/about/freebo-boxplot-words.png' /></td></tr>
 </table>
 
 <h2>ECCO</h2>
 <table>
-<tr><td><img width='400' src='/about/ecco-histogram-years.png' /></td><td><img width='400' src='/about/ecco-boxplot-years.png' /></td></tr>
-<tr><td><img width='400' src='/about/ecco-histogram-pages.png' /></td><td><img width='400' src='/about/ecco-boxplot-pages.png' /></td></tr>
-<tr><td><img width='400' src='/about/ecco-histogram-words.png' /></td><td><img width='400' src='/about/ecco-boxplot-words.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/ecco-histogram-years.png' /></td><td><img width='400' src='/english/about/ecco-boxplot-years.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/ecco-histogram-pages.png' /></td><td><img width='400' src='/english/about/ecco-boxplot-pages.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/ecco-histogram-words.png' /></td><td><img width='400' src='/english/about/ecco-boxplot-words.png' /></td></tr>
 </table>
 
 
 <h2>Sabin</h2>
 <table>
-<tr><td><img width='400' src='/about/sabin-histogram-years.png' /></td><td><img width='400' src='/about/sabin-boxplot-years.png' /></td></tr>
-<tr><td><img width='400' src='/about/sabin-histogram-pages.png' /></td><td><img width='400' src='/about/sabin-boxplot-pages.png' /></td></tr>
-<tr><td><img width='400' src='/about/sabin-histogram-words.png' /></td><td><img width='400' src='/about/sabin-boxplot-words.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/sabin-histogram-years.png' /></td><td><img width='400' src='/english/about/sabin-boxplot-years.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/sabin-histogram-pages.png' /></td><td><img width='400' src='/english/about/sabin-boxplot-pages.png' /></td></tr>
+<tr><td><img width='400' src='/english/about/sabin-histogram-words.png' /></td><td><img width='400' src='/english/about/sabin-boxplot-words.png' /></td></tr>
 </table>
 	
 	

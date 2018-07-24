@@ -33,7 +33,7 @@ input = cgi.FieldStorage()
 if "id" not in input :
 
 	print( 'Content-Type: text/html\n' )
-	print ( '''<html><head><title>Project English - List noun phrases</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/etc/style.css"></head><body><div class="header"><h1>Project English - List noun phrases</h1></div><div class="col-3 col-m-3 menu"><ul><li><a href="/home.html">Home</a></li><li><a href="/about/">About and scope</a></li><li><a href="/cgi-bin/search.cgi">Search</a></li></ul></div><div class="col-9 col-m-9"><form method="GET" action="/cgi-bin/id2nounphrases.cgi">Identifier: <input type="text" name="id" value="SABCPA8365000" /> <input type="submit" value="List noun phrases" /></form><div class="footer"><p style="text-align: right">Eric Lease Morgan &amp; Team Project English<br />April 9, 2018</p></div></div></body></html>''' )
+	print ( '''<html><head><title>Project English - List noun phrases</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/english/etc/style.css"></head><body><div class="header"><h1>Project English - List noun phrases</h1></div><div class="col-3 col-m-3 menu"><ul><li><a href="/english/home.html">Home</a></li><li><a href="/english/about/">About and scope</a></li><li><a href="/english/cgi-bin/search.cgi">Search</a></li></ul></div><div class="col-9 col-m-9"><form method="GET" action="/english/cgi-bin/id2nounphrases.cgi">Identifier: <input type="text" name="id" value="SABCPA8365000" /> <input type="submit" value="List noun phrases" /></form><div class="footer"><p style="text-align: right">Eric Lease Morgan &amp; Team Project English<br />April 9, 2018</p></div></div></body></html>''' )
 
 # process the input
 else :

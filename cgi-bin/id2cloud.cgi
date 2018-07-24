@@ -3,12 +3,12 @@
 use constant TMP   => '../tmp/words.tsv';
 use constant CLOUD => '../bin/words2cloud.R';
 use constant QUERY => qq( SELECT id, collection FROM titles WHERE id='##ID##'; );
-use constant ROOT  => '../';
+use constant ROOT  => '..';
 
 use strict;
 use CGI;
 use CGI::Carp qw( fatalsToBrowser );
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 my $cgi     = CGI->new;
 my $id      = $cgi->param( 'id' );
@@ -34,13 +34,13 @@ else {
 	my $collection = $$item{ 'collection' };
 	my $id         = $$item{ 'id' };
 	my $file       = ROOT . &id2root( $collection, $id ) . "/$id.ent";
-
+	
 	my %entities = ();
 	open INPUT, " < $file" or die "Can't open $file ($!).\n";
 	while ( <INPUT> ) {
 
 		chop;
-		my ( $id, $entity, $type ) = split( "\t", $_ );
+		my ( $id, $sid, $eid, $entity, $type ) = split( "\t", $_ );
 		next if ( $type ne $element );
 		$entities{ $entity }++;
 	 
@@ -53,7 +53,7 @@ else {
 	close OUTPUT;
 
 	system( CLOUD );
-	print $cgi->redirect( 'http://cds.crc.nd.edu/tmp/cloud.png');
+	print $cgi->redirect( 'http://cds.crc.nd.edu/english/tmp/cloud.png');
 
 }
 
@@ -68,7 +68,7 @@ sub form {
 <head>
 <title>Project English</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 <body>
 <div class="header">
@@ -77,16 +77,16 @@ sub form {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About and scope</a></li>
-	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About and scope</a></li>
+	<li><a href="/english/cgi-bin/search.cgi">Search</a></li>
  </ul>
 </div>
 
 <div class="col-9 col-m-9">
 
 <p>Given an Project English identifier and a type of word, this form will return an word cloud.</p>
-<form method='GET' action='/cgi-bin/id2cloud.cgi'>
+<form method='GET' action='/english/cgi-bin/id2cloud.cgi'>
 <input type='text' name='id' size='50' value='A00011'/>
 <select name="element">
 <option value='PERSON'>people</option>

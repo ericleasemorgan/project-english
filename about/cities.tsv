@@ -1,239 +1,252 @@
 c	city
-27670	London
-4431	Boston
-2591	Dublin
-2293	New York
-1928	Edinburgh
-1583	Philadelphia
-669	Oxford
-630	Glasgow
+30511	London
+4479	Boston
+3401	Dublin
+2442	Edinburgh
+2310	New York
+1607	Philadelphia
+809	Glasgow
+778	Oxford
+470	Cambridge
 435	S.l
-403	Cambridge
 371	Albany N.Y
-317	Hartford
+320	Hartford
 281	Washington D.C
+265	London i.e. Paris
 261	Providence R.I
-234	Salem Mass
+235	Salem Mass
 220	Washington, D.C
 217	Washington
 202	Cincinnati
 198	Portland Me
 188	Lowell Mass
-177	London i.e. Paris
 176	Worcester Mass
 175	Roxbury Mass
 171	Baltimore Md
-165	New Haven
-160	Albany
+169	New Haven
+161	Albany
 156	London printed
 150	Cambridge Mass
-132	Paris
+146	Paris
+131	York
+120	Aberdeen
+115	Edinburgi
+114	Manchester
+112	Belfast
+110	Norwich
 109	Ohio
+106	Cork
 105	Amsterdam
-104	York
-99	Newburyport Mass
+101	Bristol
+101	Newcastle upon Tyne
+100	Newburyport Mass
 97	Concord N.H
-97	Cork
-96	Aberdeen
-94	New-Haven
-93	Norwich
+96	New-Haven
 92	Charlestown Mass
 92	Columbus
-91	Edinburgi
 89	Lynn Mass
 86	U.S
-85	Manchester
-84	Baltimore
-83	Belfast
+85	Baltimore
+84	Bath
 82	Augusta Me
 82	Chicago Ill
-78	Bristol
-71	Bath
-71	Newcastle upon Tyne
-70	Boston, N.E
+82	Worcester
+79	Newcastle
+72	Boston, N.E
 70	San Francisco
+69	Coventry
+69	Falkirk
 66	Harrisburg Pa
-66	Worcester
-61	Providence
-58	Newcastle
-57	Boston in N.E
+63	Providence
+62	Boston in N.E
+61	New-London
+60	Birmingham
+58	Dublinii
+57	Glasguae
 57	New-Bedford Mass
 57	Sherborne Dorset
 55	Boston Mass
-55	Glasguae
 54	Boston, New-England
 53	Bangor Me
 53	Northampton Mass
-52	New-London
-51	Falkirk
+52	Perth
 51	Fitchburg Mass
 51	Lawrence Mass
 51	New Bedford Mass
 51	Springfield Mass
-50	Coventry
-49	Birmingham
+49	Shrewsbury
+48	Boston N.E
+48	Boston in New-England
 48	Manchester, N.H
 48	Salem
 47	Groton Mass
 47	Indianapolis Ind
+47	Liverpool
 47	Portsmouth N.H
-46	Boston N.E
-46	Boston in New-England
 44	Hallowell Me
-44	Perth
+44	Leeds
 43	Charleston S.C
+43	Londra
 42	Concord, N.H
-42	Londres
 42	Saint Paul Minn
 41	Burlington Vt
 41	Columbia, S.C
 40	Brooklyn N.Y
 40	Concord Mass
-40	Liverpool
-40	Londra
 40	Portland
 40	St. Louis Mo
-39	Dublinii
-38	Charleston
-37	Salisbury
-37	Shrewsbury
+39	Charleston
+39	Salisbury
+37	Oxonii
 36	Nashua N.H
 36	St. Louis, Mo
-35	Londres i.e. Paris
 35	Louisville Ky
 35	North Brookfield Mass
 34	Brunswick Me
 34	Des Moines Iowa
 34	Saint-Omer
 33	Charlestown, Mass
-33	Oxonii
 32	Chicago, Ill
+32	Worcester, Massachusetts
+31	Berwick
 31	Fall River Mass
 31	Lansing Mich
+31	New London
 31	St. Paul Minn
-31	Worcester, Massachusetts
-30	Leeds
+30	Exon
 30	Tallahassee Fla
 29	Albany, N.Y
+29	Chester
 29	Concord
 29	Frankfort, Ky
+29	Nottingham
 28	Andover Mass
+28	Northampton
 28	Nürnberg
-27	New London
+27	Dundee
+27	N. London i.e., New London
 26	Chelsea Mass
+26	Corke
 26	Newport, R.I
-25	Berwick
+26	Preston
 25	Buffalo N.Y
-25	Chester
-24	Northampton
+25	Newry
+24	Exeter
 23	Beloit Wis
 23	Springfield, Mass
-22	Exon
+22	Basil
 22	In the Savoy i.e. London
 22	Lewiston Me
-22	Newry
+22	London i.e. Amsterdam
+22	Middletown
 22	Richmond Va
+21	Caerfyrddin
+21	Cantabrigiæ
 21	Charleston, S.C
 21	Concord, Mass
-21	Exeter
 21	In the Savoy
-21	Middletown
-21	N. London i.e., New London
+21	London i.e. The Hague
 21	New York, N.Y
-21	Nottingham
+21	Newark
 21	Roxbury, Mass
 21	Toronto
+20	Canterbury
 20	Cleveland
-20	Corke
+20	Darlington
+20	Germantown Pa
 20	In the Savoy London
 20	Minneapolis Minn
 20	Oxford Oxfordshire
+20	Paisley
 20	Plymouth Mass
-20	Preston
 20	Providence, R.I
 20	Taunton Mass
 19	Augusta
 19	Clinton, Mass
+19	Ipswich
 19	Madison, Wis
 19	Milford Mass
 19	Pittsburgh Pa
+19	Warrington
 18	Buffalo
-18	Germantown Pa
+18	Edinburgh, Scotland
+18	England
+18	Leipzig
 18	Middletown, N.Y
-18	Newark
 18	Peoria Ill
+18	Stirling
 18	West Brookfield Mass
+17	Aberdene
 17	Cambridge, Mass
-17	Leipzig
+17	Edinbourg
+17	Hull
 17	Montreal
 17	Newport R.I
+17	Oxon
 17	Pembroke Mass
+17	Portsmouth
 17	Trefriw
 17	Wilmington Del
-16	Aberdene
 16	Annapolis Md
 16	Bloomington Iowa
 16	Cambridge Cambridgeshire
-16	Cantabrigiæ
-16	Edinbourg
-16	Ipswich
-16	London i.e. Amsterdam
-16	London i.e. The Hague
 16	Lowell, Mass
 16	New Orleans La
-16	Oxon
-16	Portsmouth
-16	Warrington
+16	Penrith
+16	Waterford
 16	Worcester, Mass
 15	Athol Depot Mass
-15	Caerfyrddin
+15	Boston; New-England
+15	Carmarthen
 15	Chicago
-15	Dundee
-15	England
+15	Derby
+15	Eton
 15	Iowa City Iowa
 15	Montpelier
 15	North Bridgewater Mass
-15	Paisley
 15	Scotland
 15	Tuscaloosa Ala
-15	Waterford
-14	Carmarthen
 14	Haverhill Mass
-14	Hull
+14	Lincoln
 14	Manchester N.H
 14	New-Bedford
 14	Oxford i.e. London
+14	Reading
 14	Rochester N.Y
 14	Salem, Mass
 14	Springfield Ill
 14	Woburn Mass
-13	Basil
+13	Air
 13	Boston, in N.E
-13	Boston; New-England
 13	Detroit, Mich
 13	Greenfield Mass
 13	Jefferson City, Mo
 13	London In the Savoy
 13	Richmond
 13	Sacramento
-12	Air
 12	Andrew Iowa
 12	Baltimore, Md
 12	Bethany W. Va
 12	Brooklyn
-12	Canterbury
-12	Eton
+12	Burslem
 12	Exeter N.H
+12	Germanton Pa
 12	Lancaster
+12	Limerick
+12	London,England
+12	Ludlow
 12	Middelburg
 12	Milwaukee Wis
-12	Penrith
+12	Plymouth
 12	Reading Mass
 12	Rutland
 12	Taunton, Mass
+12	Vienna
+12	Winchester
 11	Burlington N.J
 11	Burlington, Iowa
 11	City of Washington D.C
+11	Etonæ
 11	Fitchburg
 11	Great Barrington Mass
 11	Jacksonville Ill
@@ -241,63 +254,68 @@ c	city
 11	Marblehead Mass
 11	Newbury-Port Mass
 11	Oswego N.Y
-11	Stirling
+11	Oxoniæ
+11	Sherborne
+11	Taunton
 11	Waterville Me
+11	Whitehaven
+11	Wrexham
 10	Annapolis
 10	Auburn N.Y
 10	Boston, Mass
 10	Detroit Mich
-10	Etonæ
+10	Dublini
+10	Glasguæ
+10	Hereford
 10	Kilkenny
+10	Leicester
+10	Litchfield
 10	London i.e. Edinburgh
-10	Ludlow
+10	Newport, Rhode-Island
 10	Omaha City Neb
-10	Oxoniæ
 10	Rochester
 10	Rutland Vt
 10	San José
 10	Savannah Ga
 10	Springfield
-10	Wrexham
 9	Andover
 9	Barre Mass
-9	Burslem
 9	Cleveland N.Y
 9	Downpatrick
 9	Edinbvrgh
 9	Elizabeth-Town N.J
-9	Germanton Pa
+9	Gloucester
 9	Indianapolis
+9	Kilmarnock
 9	Lancaster Pa
-9	Lincoln
 9	London i.e. Brussels
 9	Madison
 9	Nantucket Mass
-9	New-York
 9	Newburyport
 9	Newburyport, Mass
-9	Newport, Rhode-Island
 9	Peterboro
-9	Plymouth
-9	Sherborne
+9	Rotterdam
+9	Sarum
+9	Stamford
+9	Stockton
 9	Trenton, N.J
 9	Troy, N.Y
+9	United States
 9	West Brookfeild Mass
-9	Winchester
 8	Amherst Mass
 8	Amherst, Mass
 8	Auburn
 8	Berlin
 8	Chelmsford
 8	Columbia
-8	Derby
 8	Douai
-8	Dublini
-8	Glasguæ
+8	Dumfries
+8	Glocester
 8	Gottingue i.e., Gottingen
 8	Hingham Mass
 8	Leiden
-8	Litchfield
+8	Leith
+8	London i.e.Paris
 8	Louisville, Ky
 8	Madison Wis
 8	Milwaukee, Wis
@@ -306,63 +324,59 @@ c	city
 8	Raleigh N.C
 8	Rochester, N.Y
 8	Salem, Or
+8	Salop
 8	Springfield, Ill
-8	Taunton
 8	Toronto Ont
+8	Trenton
 8	Trenton N.J
-8	United States
 8	Utica, N.Y
 8	Windsor
 7	Alton, Ill
 7	Brentford
+7	Buckingham
+7	Colchester
 7	Dedham Mass
 7	Detroit
 7	Dublin Ireland
 7	Edinburg
 7	Germantaun Pa
-7	Gloucester
 7	Greenfield
 7	Hamilton N.Y
-7	Hereford
 7	Keene N.H
-7	Leith
-7	London i.e.Paris
+7	London i.e. Dublin
+7	Lynn
+7	Montrose
 7	Newark, N.J
 7	Olympia
-7	Reading
-7	Rotterdam
 7	Russellville, Ky
 7	Salisbury Mass
-7	Sarum
+7	Sheffield
+7	Southampton
 7	Stockbridge Mass
-7	Stockton
-7	Trenton
+7	Twickenham
 7	Utica
 7	Utica N.Y
-7	Whitehaven
 7	Wilmington, Del
 7	Windham
+7	Wolverhampton
 6	Anderson Tex
 6	Antwerp
 6	Armagh
+6	Boston New-England
 6	Brownville, N.T. Neb
 6	Brownville, N.T. i.e., Nebraska Territory
-6	Buckingham
 6	Burlington
 6	Canton, Mass
-6	Darlington
+6	Cirencester
 6	Elizabeth-town N.J
 6	Ephrata Pa
 6	Halifax
 6	Harrisburg
 6	Holland
-6	London i.e. Dublin
 6	Lowell
 6	Middleborough Mass
 6	Middlebury Vt
-6	N. London i.e., New London, Conn
 6	Nashville, Tenn
-6	New-London Conn
 6	Newark N.J
 6	North Adams, Mass
 6	Nueva York i.e., New York
@@ -375,14 +389,14 @@ c	city
 6	S. Omers
 6	Schenectady N.Y
 6	South Danvers Mass
-6	Twickenham
+6	The Hague
 6	Westminster
 6	Windsor Vt
 6	Winsted
 6	Yarmouth Port Mass
 5	Amherst
 5	Atlanta, Ga
-5	Boston New-England
+5	Bedford
 5	Breslau
 5	Cantabrigiae
 5	Carlisle Pa
@@ -390,33 +404,33 @@ c	city
 5	Concord, N. H
 5	Cooperstown
 5	Dayton
+5	Doncaster
 5	Dort
 5	Dover N.H
+5	Drogheda
 5	Dublin London
-5	Dumfries
 5	Gettysburg Pa
-5	Glocester
 5	Hague
 5	Jersey City N.J
-5	Kilmarnock
+5	Kelso
+5	Kendal
+5	Kidderminster
 5	Lancaster, Pa
 5	Lawrence Kan
-5	Leicester
-5	Limerick
+5	Lichfield
 5	London ;and re-printed at Edinburgh
 5	Londra i.e. Leghorn
 5	Londra i.e. Paris
-5	Lynn
 5	Mass
 5	Middlebury
 5	Montreal Québec
-5	Montrose
 5	México
 5	New Bedford, Mass
 5	New Orleans
 5	New Orleans, La
 5	New York ; Albany
 5	Newbury-port Mass
+5	Paris i.e. London
 5	Parisiis
 5	Philadelphia America
 5	Portsmouth, New-Hampshire
@@ -424,31 +438,33 @@ c	city
 5	Providence (Rhode-Island
 5	Québec
 5	Re-printed at Edinburgh
-5	Salop
 5	Saratoga Springs
-5	Sheffield
-5	Stamford
+5	Suffield
+5	Sunderland
 5	Syracuse N.Y
-5	The Hague
-5	Vienna
+5	Tewkesbury
+5	Wakefield
 5	Williamsburg Va
 4	
+4	A London
 4	Akron
 4	Barnstable Mass
 4	Bath i.e. London
 4	Battle Creek, Mich
-4	Bedford
+4	Boston in N
+4	Boston in N E
 4	Boston, New
 4	Bridgeport
 4	Camden
 4	Chambersburg, Pa
-4	Cirencester
 4	Danbury
 4	Davenport Iowa
 4	Delph
 4	Douay
 4	Easton, Pa
 4	Edinburgh printed
+4	Exeter, N.H
+4	Gainsbrough
 4	Guildford
 4	Habana
 4	Houston Tex
@@ -457,14 +473,15 @@ c	city
 4	Lancashire
 4	Lansing
 4	Leide i.e. Leiden, Netherlands
+4	Lewes
 4	Lexington
-4	London England
-4	Londres i.e. Amsterdam
+4	London, i.e. Paris
 4	Louisville
 4	Marietta
 4	Massachusetts
 4	Memphis, Tenn
 4	Middelburgh
+4	Mullingar
 4	N London i.e., New London
 4	Nashville Tenn
 4	New-Brunswick N.J
@@ -481,17 +498,17 @@ c	city
 4	Saratoga Springs N.Y
 4	Savannah
 4	Schenectady, N.Y
+4	Southwark
 4	St. Louis
-4	Sunderland
 4	Tamworth
 4	Trefecca
-4	Wakefield
 4	Watertown
 4	Whitby
-4	Wolverhampton
 4	Yorke
-3	A London
+4	à London
 3	Aberdoniæ
+3	Aberhonddu
+3	Amsterdam i.e. London
 3	Auburn, N.Y
 3	Augusta, Ga
 3	Baltimori Md
@@ -499,9 +516,9 @@ c	city
 3	Bath Me
 3	Berwick upon Tweed
 3	Bethlehem Pa
-3	Boston in N
 3	Boston printed
 3	Boston, N
+3	Boston, in New
 3	Boston, in New-England
 3	Boston; N.E
 3	Bristoll
@@ -509,55 +526,61 @@ c	city
 3	Brunswick
 3	Buffalo, N.Y
 3	Bury St. Edmund's
+3	Bury St. Edmunds, Suffolk
 3	Calcutta
 3	Canterbury, N.H
-3	Colchester
+3	Carlisle
 3	Columbia S.C
+3	Congleton
 3	Dedham
+3	Deptford
 3	Dover
 3	Doway
-3	Drogheda
+3	Dublin i.e. London
+3	Dublin i.e. Paris
 3	Dubuque, Iowa
+3	Edimbourg
 3	Edinburgh And reprinted at London
 3	Edinburgh Reprinted at London
+3	Edinburgh Scotland
 3	Edinburgh reprinted at London
-3	Exeter, N.H
 3	Filadelfia
-3	Gainsbrough
 3	Galway
 3	Glascow
+3	Glasgow Scotland
+3	Glasgow or Edinburgh
 3	Goettingen
 3	Greenfield, Mass
 3	Hage
+3	Halifax N.S
 3	Halifax, N.S
 3	Hamburgh i.e. Hamburg, Germany
-3	Kelso
-3	Kendal
+3	Henley
+3	Huddersfield
 3	Knoxville
 3	Leipzig und Züllichau
-3	Lewes
-3	Lichfield
 3	Llundain
 3	London and re-printed at Edinburgh
 3	London i.e. Geneva
+3	London i.e. Lausanne
 3	London i.e. Lyons
+3	London i.e. Nottingham
+3	London i.e. York
 3	London, and re-printed at Edinburgh
-3	London, i.e. Paris
 3	London-Derry
 3	Loudon sic
 3	Minneapolis
 3	Mobile
 3	Montréal Québec
-3	Mullingar
 3	Mwythig
 3	N.Y
 3	Netherlands
-3	New London, Conn
 3	New-Orleans
 3	Paris i.e. Saint-Omer
 3	Pawtucket R.I
 3	Peterboro N.H
 3	Peterboro, N.Y
+3	Peterborough
 3	Philadelphiae
 3	Pittsburgh, Pa
 3	Portland, Me
@@ -567,12 +590,8 @@ c	city
 3	Saco, Me
 3	Saint Louis Mo
 3	Saint Paul
-3	Southampton
 3	Southbridge Mass
-3	Southwark
-3	Suffield
 3	Syracuse, N.Y
-3	Tewkesbury
 3	Topeka, Kan
 3	Troy
 3	U. S
@@ -580,6 +599,7 @@ c	city
 3	Venezia
 3	Waltham Mass
 3	Warren (Rhode-Island
+3	Warwick
 3	Weimar
 3	West Chester, Pa
 3	Williamsburg, Va
@@ -590,23 +610,20 @@ c	city
 2	A Boston
 2	A Paris
 2	Aberdeen printed
-2	Aberhonddu
 2	Alexandria Va
 2	Alnwick
 2	Amherst, Newhampshire
 2	Amstelredam
-2	Amsterdam i.e. London
 2	Andreapoli
 2	Antwerpe
 2	Avignon
 2	Aylesbury
+2	Ayr
 2	Bangor
 2	Basle i.e. London
 2	Bennington
 2	Boise City Idaho
 2	Bolton
-2	Boston in N E
-2	Boston, in New
 2	Bremen, London
 2	Brookline, Mass
 2	Burlington, N.J
@@ -614,7 +631,6 @@ c	city
 2	Cambridge (England
 2	Cambridge, Cambridgeshire
 2	Canton Mass
-2	Carlisle
 2	Carnarvon
 2	Catskill N.Y
 2	Chambersburg Pa
@@ -623,8 +639,9 @@ c	city
 2	Christianstad Sweden
 2	Circleville
 2	Clinton Mass
-2	Congleton
+2	Clonmel
 2	Cooperstown, N.Y
+2	Corcagiæ
 2	Croesoswallt
 2	Croydon
 2	Danvers Mass
@@ -632,15 +649,15 @@ c	city
 2	Delf in Holeand
 2	Delft
 2	Denver, Colo
-2	Deptford
-2	Doncaster
 2	Dordrecht
 2	Dort i.e. London
 2	Doylestown, Pa
+2	Dresden
+2	Dublin i.e. Boston
+2	Dun-Eidean
 2	Durham
 2	Dvblin
 2	Easton Pa
-2	Edimbourg
 2	Edimbourg i.e. Paris
 2	Edinburgh London
 2	Edinburgh re-printed
@@ -659,14 +676,12 @@ c	city
 2	Gainsborough
 2	Geneva, N.Y
 2	Germantown, Pa
-2	Glasgow Scotland
 2	Gloucester Mass
 2	Gosport
 2	Granville, Middletown, N. J
 2	Groton Junction, Mass
 2	Guatemala
 2	Hagh
-2	Halifax N.S
 2	Halifax, Canada
 2	Hallowell
 2	Hamburgh
@@ -677,10 +692,10 @@ c	city
 2	Harrisburgh Pa
 2	Harrogate
 2	Haverhill, Massachusetts
-2	Henley
 2	Honolulu Hawaii
 2	Hopedale, Mass
 2	Hudson
+2	Hudson, N.Y
 2	Imprinted in Aberdene
 2	Imprynted at London
 2	In London
@@ -692,24 +707,29 @@ c	city
 2	Keene
 2	Keokuk Iowa
 2	Knoxville, Tenn
+2	La Haye
+2	Leedes
 2	Leominster, Massachusetts
 2	Lions
-2	Litchfield Conn
+2	Llandovery
 2	Lodon sic
 2	Londn sic
 2	London Printed
 2	London and Birmingham
 2	London and Westminster
-2	London i.e. Lausanne
+2	London i.e Paris
+2	London i.e. Frankfurt
 2	London i.e. Neuchâtel
-2	London i.e. York
+2	London i.e. Rheims
 2	London imprinted
-2	London, England
 2	London, printed
+2	Loughborough
 2	Lovain
 2	Lyon
 2	Macclesfield
+2	Maidstone
 2	Malta
+2	Margate
 2	Medford Mass
 2	Medford, (Massachusetts
 2	Memphis
@@ -730,8 +750,8 @@ c	city
 2	New York City
 2	New York N.Y
 2	New-Brunswick
+2	Newport
 2	Northampton, (Massachusetts
-2	Norwich Conn
 2	Nouvelle York
 2	Nueva-York i.e., New York
 2	Onondaga
@@ -740,7 +760,6 @@ c	city
 2	Oxford or London
 2	Oxford, Oxfordshire
 2	Oxon Oxford
-2	Paris i.e. London
 2	Philadelphia Pa
 2	Philadelphia, Pa
 2	Philadelphie
@@ -768,6 +787,7 @@ c	city
 2	Schenectady
 2	Southbridge
 2	Springfield (Massachusetts
+2	Springfield, Massachusetts
 2	St. Anthony
 2	St. Christopher
 2	St. Omer
@@ -781,20 +801,26 @@ c	city
 2	Syracuse
 2	Te Leyden
 2	Toledo
+2	Trangambar
 2	Trefhedyn
 2	Tunbridge Wells
 2	Union Village
 2	Walpole, Newhampshire
-2	Warwick
 2	Washington Pa
 2	Washington, D. C
 2	Waterbury
 2	Watertown, N.Y
 2	West Brookfield, Mass
+2	Wexford
+2	Whitchurch
 2	Wigan
+2	Wilmington
+2	Wisbech
 2	Woodbridge N.J
 2	Woodbridge, in New-Jersey
 2	Wooster
+2	Workington
+2	Woverhampton
 2	Wrentham, (Massachusetts
 2	Wrentham, Mass
 2	Wrentham, Massachusetts
@@ -816,6 +842,7 @@ c	city
 1	A LondonLondon
 1	A Maestricht
 1	A Montréal
+1	A Peine
 1	Aberdeen Scotland
 1	Aberdeen, Scotland
 1	Abingdon, Va
@@ -844,6 +871,7 @@ c	city
 1	Amsterdam i.e. Manchester
 1	Amsterdam printed
 1	Antuerpiae
+1	Antwerp i.e. London
 1	Antwerpen
 1	Anvers
 1	Anwerp sic
@@ -858,8 +886,8 @@ c	city
 1	Augusta, Kalamazoo Co., Mich
 1	Augusta, Me
 1	Austin, Tex
-1	Ayr
 1	Bagdad i.e. Cork
+1	Bala
 1	Baltimorae i.e., Baltimore
 1	Baltimori
 1	Bangor, Me
@@ -877,6 +905,7 @@ c	city
 1	Binghamton, N.Y
 1	Birmingham Eng
 1	Birminghamiae
+1	Bodedern or Bala
 1	Bogota
 1	Bogotá
 1	Boston (Commonwealth of Massachusetts
@@ -887,7 +916,6 @@ c	city
 1	Boston, (Massachusetts
 1	Boston, N E
 1	Boston, in America
-1	Boston, in New England
 1	Boston, printed
 1	Boston; New
 1	Bostoni in Nov-Anglia excusum
@@ -912,9 +940,10 @@ c	city
 1	Buffalo Creek Reservation (N.Y
 1	Burlington Iowa
 1	Burnley
+1	Bury
 1	Bury St. Edmunds
-1	Bury St. Edmunds, Suffolk
 1	Caen
+1	Caerfryddin
 1	Caerlleon
 1	Caernarfon
 1	Caernarvon
@@ -926,6 +955,7 @@ c	city
 1	Canandaigua
 1	Cantorbery i.e. Paris
 1	Cap-Henry
+1	Cardiff
 1	Caroloppidi i.e., Charlestown, Mass
 1	Carácas ; Paris
 1	Castleton
@@ -951,6 +981,7 @@ c	city
 1	Chelsea
 1	Chesham
 1	Cheshire
+1	Cheshunt
 1	Chesnuthill Pa
 1	Chesterfield
 1	Chillicothe
@@ -961,7 +992,6 @@ c	city
 1	Clinton Hall, N.Y
 1	Clinton, Iowa
 1	Clipstone
-1	Clonmel
 1	Cockenay i.e. Edinburgh
 1	Colerain
 1	Collen i.e. Paris
@@ -970,7 +1000,7 @@ c	city
 1	Commonwealth of Massachusetts, Boston, N.E
 1	Commonwealth of Massachusetts.) Pittsfield
 1	Copenhagen
-1	Corcagiæ
+1	Corcagiae
 1	Cranbrook
 1	Cullen i.e. Saint-Omer
 1	Cupar Fife
@@ -993,18 +1023,18 @@ c	city
 1	Dover, (N.H
 1	Dover, Del
 1	Dover, N.H
+1	Drumfries
 1	Duaci
 1	Dubdin sic, i.e. Dublin
 1	Dubdlin sic
 1	Dublin and reprinted at London
-1	Dublin i.e. Paris
 1	Dublin printed
 1	Dublin reprinted
 1	Dublin, ;and re-printed at Edinburgh
 1	Dublin, Ireland
 1	Dublino
 1	Dubuque Iowa
-1	Dun-Eidean
+1	Dunfermline
 1	Duxbury, Mass
 1	East Saginaw, Mich
 1	East-Windsor, (Connecticut
@@ -1019,16 +1049,17 @@ c	city
 1	Edinburgh And now re-printed at London
 1	Edinburgh London, re-printed
 1	Edinburgh Re-printed at London
-1	Edinburgh Scotland
 1	Edinburgh and Reprinted at London
 1	Edinburgh and re-printed at London
 1	Edinburgh and reprinted at London
 1	Edinburgh i.e. London
 1	Edinburgh i.e. Oxford
+1	Edinburgh printed in the year M,DCC,LXXVI. Sold by Drummond
 1	Edinburghi
 1	Edinburgo
 1	Edinburh sic
 1	Edinbvrgh London
+1	Edinr
 1	Eizabeth-town
 1	Elesium sic i.e. London
 1	Eleutheropolis i.e. Edinburgh
@@ -1125,8 +1156,6 @@ c	city
 1	Holyoke
 1	Holyoke, Mass
 1	Honolulu
-1	Huddersfield
-1	Hudson, N.Y
 1	Huntingdon
 1	Iena
 1	Imprinted amongst the Antipides i.e. Dordrecht
@@ -1158,7 +1187,7 @@ c	city
 1	Kennebunk
 1	Keokuk, Iowa
 1	Kewanee Ill
-1	Kidderminster
+1	King's Lynn
 1	Kingston
 1	Kingston, Pa
 1	Kingston, U.C. Ont
@@ -1168,7 +1197,6 @@ c	city
 1	Knoxville Tenn
 1	Ky
 1	La Crosse Wis
-1	La Haye
 1	Lahainaluna
 1	Lambeth
 1	Lancaster Mass
@@ -1182,7 +1210,6 @@ c	city
 1	Lawrence, Mass
 1	Leavenworth Kan
 1	Lebanon, Ill
-1	Leedes
 1	Leith Scotland
 1	Leominster
 1	Leominster, (Mass
@@ -1198,7 +1225,7 @@ c	city
 1	Litchfield, (Connecticut
 1	Little Falls, N.Y
 1	Little Rock, Ark. Ter. i.e., Arkansas Territory
-1	Llandovery
+1	Liège
 1	Llanymddyfri
 1	Lo
 1	Loddon sic
@@ -1207,6 +1234,7 @@ c	city
 1	Logansport Ind
 1	Lond
 1	Londees i.e. London
+1	Londgn sic
 1	London ; Edinburgh
 1	London ;And re-printed at Edinburgh
 1	London ;and re-printed at Glasgow
@@ -1220,15 +1248,12 @@ c	city
 1	London and Oxford
 1	London and re-printed at Glasgow
 1	London i.e Berlin
-1	London i.e Paris
 1	London i.e York
 1	London i.e. Barby
 1	London i.e. Bordeaux
-1	London i.e. Frankfurt
 1	London i.e. Montargis
 1	London i.e. Oxford
 1	London i.e. Regensburg
-1	London i.e. Rheims
 1	London i.e. Versailles
 1	London i.e., London
 1	London i.e.The Hague
@@ -1237,9 +1262,11 @@ c	city
 1	London printed ;Edinburgh re-printed
 1	London printed at
 1	London sic
+1	London, 1793
 1	London, ;and re-printed
 1	London, ;and re-printed at Edinburgh
 1	London, Philadelphie i.e. Paris
+1	London. A.D
 1	Londoni sic
 1	Londoni.e.Paris
 1	Londons i.e. London
@@ -1248,11 +1275,6 @@ c	city
 1	Londra i.e. Mantua
 1	Londra i.e. Venice
 1	Londre i.e. Amsterdam
-1	Londres i.e Paris
-1	Londres i.e. Frankfurt
-1	Londres i.e. Lausanne
-1	Londres i.e. Rheims
-1	Londres i.e.Paris
 1	Lonlon sic
 1	Lonndo sic
 1	Lonodnsic
@@ -1266,6 +1288,7 @@ c	city
 1	Lovanij
 1	Loydon sic
 1	Lunden
+1	Lymington
 1	Machias Me
 1	Machynlleth
 1	Macon
@@ -1275,13 +1298,11 @@ c	city
 1	Madrid i.e. London
 1	Maestricht
 1	Maidenhead
-1	Maidstone
 1	Maine Portland
 1	Mannheim
 1	Mansfield
 1	Marblehead, Mass
 1	March 23. London
-1	Margate
 1	Market-Harborough
 1	Marlboro
 1	Massachuset; Boston
@@ -1297,7 +1318,6 @@ c	city
 1	Middleborough, Mass
 1	Middlebourgh i.e. London
 1	Middleburg i.e. London
-1	Middletown Conn
 1	Milano
 1	Milledgeville
 1	Milledgeville, Ga
@@ -1341,7 +1361,6 @@ c	city
 1	New Castle Del
 1	New Haven (Conn
 1	New Jersey
-1	New London Conn
 1	New York (State
 1	New York New York
 1	New York State
@@ -1351,6 +1370,7 @@ c	city
 1	New-London (Connecticut
 1	New-London, (Conn
 1	Newark, New-Jersey
+1	Newark-upon-Trent
 1	Newbedford, Massachusetts
 1	Newbern, N.C
 1	Newburgh
@@ -1361,9 +1381,10 @@ c	city
 1	Newburyport Ky
 1	Newburyport, Massachusetts
 1	Newcastle on Tyne
+1	Newcastle upon Tine
+1	Newcastle upon Tyne Licensed and entered according to order
 1	Newfield
 1	Newly printed at Paris
-1	Newport
 1	Newport (Rhode-Island
 1	Newport N.H
 1	Newport-Pagnel
@@ -1380,6 +1401,7 @@ c	city
 1	Northborough, Mass
 1	Northumberland
 1	Northumberland-Town Pa
+1	Norton
 1	Norvici
 1	Norway
 1	Nouvelle-Orlans
@@ -1406,6 +1428,7 @@ c	city
 1	Oxford Eng
 1	Oxford and London
 1	Oxford i.e. Amsterdam
+1	Oxford i.e. Edinburgh
 1	Oxford, Eng
 1	Oxford, i.e. London
 1	Oxfort i.e. Paris
@@ -1420,9 +1443,9 @@ c	city
 1	Pawtucket
 1	Pawtucket, Mass
 1	Pawtucket, R.I
+1	Peairt
 1	Pekin, Illinois
 1	Pennsylvania
-1	Peterborough
 1	Petth sic
 1	Philadelahia sic
 1	Philadelphia (Pa
@@ -1458,8 +1481,6 @@ c	city
 1	Printed att sic Paris
 1	Printed by His Majesties command at Oxford
 1	Printed by His Majesties command, at Oxford, Ianuary 18
-1	Printed in Aberdene
-1	Printed in Amsterdam i.e. London
 1	Printed, typographically, at Northampton, Massachusetts
 1	Printet sic, at Amsterdam
 1	Providence (R. Island
@@ -1473,6 +1494,7 @@ c	city
 1	Putney Vt
 1	Quebec Canada
 1	Quincy, Ill
+1	Ramsey
 1	Re-printed at Boston in N.E
 1	Re-printed at Catskill N.Y
 1	Re-printed at Newburyport Mass
@@ -1485,6 +1507,7 @@ c	city
 1	Reprinted in London
 1	Rhinebeck, Dutchess County, N.Y
 1	Rhode Island
+1	Rhydychen
 1	Richmond Ky
 1	Richmond, Virginia
 1	Roan
@@ -1516,6 +1539,7 @@ c	city
 1	Salem (Massachusetts
 1	Salem Me
 1	Salem in Nordkarolina
+1	Salem, Mass. New-England
 1	Salem, N.C
 1	Salem, N.Y
 1	Salem--Massachusetts
@@ -1530,23 +1554,27 @@ c	city
 1	Schoharie
 1	Scranton
 1	Scranton, Pa
+1	Selby
 1	Selinsgrove Pa
 1	Senaca i.e., Seneca, Kan
 1	Seneca Falls N.Y
 1	Sevenoaks
 1	Seymour
 1	Shawnee, M.L.S. Kan
+1	Shepherd's-Town Va
+1	Shepton-Mallet
+1	Shiffnal
 1	Skowhegan
 1	Skowhegan, Me
 1	Sondon i.e. London
 1	South Groton
 1	South Hadley, Mass
 1	South-Carolina, Charles-Town
+1	Southampton Pa
 1	Southampton and London
 1	Southbridge, Mass
 1	Spartanburg S.C
 1	Springfield, (Massachusetts
-1	Springfield, Massachusetts
 1	St. Andrews
 1	St. Clairsville
 1	St. Germains
@@ -1572,7 +1600,6 @@ c	city
 1	Strasburgh i.e. Amsterdam
 1	Stratford on Avon
 1	Sudbury
-1	Suffield Conn
 1	Suffolk
 1	Swarthmore
 1	Tallahassee, Fla
@@ -1582,6 +1609,7 @@ c	city
 1	Thompsonville
 1	Tiohtiaki
 1	Tiohtiaki Montreal
+1	Tiverton
 1	Toronto, Canada West i.e., Ont
 1	Tot de Hague
 1	Tournai
@@ -1589,11 +1617,13 @@ c	city
 1	Trowbridge
 1	Tuskaloosa, Ala
 1	Uabistiguiatsh
+1	Ulverston
 1	United States of America. the press in Worcester, Massachusetts
 1	United States of Columbia. Worcester, Massachusetts
 1	Upsala
 1	Utica Mich
 1	Utopia i.e. Edinburgh
+1	Uxbridge
 1	VVaterford
 1	Va
 1	Vandalia
@@ -1637,16 +1667,13 @@ c	city
 1	Westmonasterii
 1	Wethersfield
 1	Wetumpka, Ala
-1	Wexford
 1	Weymouth
 1	Wheeling W. Va
 1	Whitburn
-1	Whitchurch
 1	Wilkes-Barre, Pa
 1	Williamsburg
 1	Williamsburgh, N.Y
 1	Williamstown
-1	Wilmington
 1	Wilmington (Delaware
 1	Wilmington N.C
 1	Wilmington, N.C
@@ -1654,7 +1681,6 @@ c	city
 1	Windham, (Connecticut
 1	Windsor, Vermont
 1	Winona, Minn
-1	Wisbech
 1	Wiscasset Me
 1	Wisconsin
 1	Woodbridge
@@ -1664,7 +1690,6 @@ c	city
 1	Worcester Massachusetts-Bay
 1	Worcester, (Massachusetts
 1	Worcester, Worcestershire
-1	Workington
 1	Wormsloe Ga
 1	Wormsloe, Ga
 1	Worthington
