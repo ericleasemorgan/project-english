@@ -37,12 +37,12 @@
 
 <h2>Full texts</h2>
 <ul>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.txt'>plain text</a> - intended for text processing</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.htm'>HTML</a> - easier to read and print, mostly</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.ent'>ENT</a> - named-entities (people, places, organizations, etc.)</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.pos'>POS</a> - parts-of-speech (nouns, verbs, adjectives, etc.)</li>
-<li><a href='http://cds.crc.nd.edu##FULLPATH##/##ID##.db'>db</a> - bibliographics, named-entities, and parts-of-speech in a relational database</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.txt'>plain text</a> - intended for text processing</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.htm'>HTML</a> - easier to read and print, mostly</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.xml'>XML</a> - raw but very rich in metadata</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.ent'>ENT</a> - named-entities (people, places, organizations, etc.)</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.pos'>POS</a> - parts-of-speech (nouns, verbs, adjectives, etc.)</li>
+<li><a href='http://cds.crc.nd.edu/english##FULLPATH##/##ID##.db'>db</a> - bibliographics, named-entities, and parts-of-speech in a relational database</li>
 </ul>
 
 <h2>Simple counts &amp; tabulations</h2>
