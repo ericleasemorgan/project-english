@@ -19,14 +19,14 @@ use constant DRIVER     => 'SQLite';
 use constant TEMPLATE   => '../etc/template-carrel.txt';
 use constant ROOT       => '../../..';
 use constant SIZE       => 55;
-use constant HOME       => 'http://cds.crc.nd.edu/carrels/xyzzy/home.html';
+use constant HOME       => 'http://cds.crc.nd.edu/english/carrels/xyzzy/home.html';
 
 # require
 use CGI;
 use CGI::Carp qw( fatalsToBrowser );
 use File::Path qw( remove_tree );
 use strict;
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 # initialize
 my $cgi = CGI->new;
@@ -150,7 +150,7 @@ sub form {
 <head>
 <title>Project English - Create study carrel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 <body>
 <div class="header">
@@ -159,10 +159,10 @@ sub form {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/tools.html">Extra tools</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About</a></li>
+    <li><a href="/english/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/tools.html">Extra tools</a></li>
  </ul>
 </div>
 
@@ -171,7 +171,7 @@ sub form {
 <p>Given a set of one more more Project English identifiers, this page will create a "study carrel".</p>
 <p>Please be patient.</p>
 
-<form method='POST' action='/cgi-bin/ids2carrel.cgi'>
+<form method='POST' action='/english/cgi-bin/ids2carrel.cgi'>
 <input type='text' name='ids' size='50' value='1302901107 1323300900 1323600600 1346000200 1375900300 A07517 A08185 A66057 A67873 A67917 SABCPA8064301 SABCPA8094100 SABCPA8098400 SABCPA8193404 SABCPA8258500'/>
 <input type='submit' value='Make carrel' />
 </form>

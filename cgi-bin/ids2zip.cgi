@@ -37,7 +37,7 @@ use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
 use CGI;
 use strict;
 use CGI::Carp qw(fatalsToBrowser);
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 # initialize
 my $cgi = CGI->new;
@@ -160,7 +160,7 @@ sub results {
 <head>
 <title>Project English - Download search results</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 <body>
 <div class="header">
@@ -169,16 +169,16 @@ sub results {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/tools.html">Extra tools</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About</a></li>
+    <li><a href="/english/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/tools.html">Extra tools</a></li>
  </ul>
 </div>
 
 <div class="col-9 col-m-9">
 
-<p>Done. You can now <a href='/tmp/search-results.zip'>download a zip file of your search results</a>.</p>
+<p>Done. You can now <a href='/english/tmp/search-results.zip'>download a zip file of your search results</a>.</p>
 
 <p>The linked zip file contains plain text files, an SQLite database, and a few scripts/programs written in Bash or Python. In order to take advantage of the download, you probably don't any additional software since your computer can probably already open/read the plain text files with your text editor and/or spreadsheet program. On the other hand, you will be able to get more out of the download if you also install additional pieces of software:</p>
 
@@ -215,7 +215,7 @@ sub form {
 <head>
 <title>Project English - Download search results</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 <body>
 <div class="header">
@@ -224,10 +224,10 @@ sub form {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/tools.html">Extra tools</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About</a></li>
+    <li><a href="/english/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/tools.html">Extra tools</a></li>
  </ul>
 </div>
 
@@ -236,7 +236,7 @@ sub form {
 <p>Given a set of one more more Project English identifiers, this page will create an downloadable archive of the reader's search results. This will enable the reader to "read" the results in any number of ways.</p>
 <p>Please be patient.</p>
 
-<form method='POST' action='/cgi-bin/ids2zip.cgi'>
+<form method='POST' action='/english/cgi-bin/ids2zip.cgi'>
 <input type='text' name='ids' size='50' value='1302901107 1323300900 1323600600 1346000200 1375900300 A07517 A08185 A66057 A67873 A67917 SABCPA8064301 SABCPA8094100 SABCPA8098400 SABCPA8193404 SABCPA8258500'/>
 <input type='submit' value='Download search results' />
 </form>

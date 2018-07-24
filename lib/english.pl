@@ -1,7 +1,7 @@
 
 # configure
 use constant DRIVER     => 'SQLite';
-use constant DATABASE   => '/afs/crc.nd.edu/user/e/emorgan/local/english/etc/english.db';
+use constant DATABASE   => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/etc/english.db';
 
 # require
 use DBI;

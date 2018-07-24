@@ -15,7 +15,7 @@ use constant QUERY => qq(SELECT * FROM titles WHERE ##CLAUSE## ORDER BY title;);
 # require
 use strict;
 use CGI;
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 # initialize
 my $cgi     = CGI->new;
@@ -168,7 +168,7 @@ sub form {
 <head>
 <title>Project English</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/etc/style.css">
+<link rel="stylesheet" href="/english/etc/style.css">
 </head>
 <body>
 <div class="header">
@@ -177,16 +177,16 @@ sub form {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About and scope</a></li>
-	<li><a href="/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About and scope</a></li>
+	<li><a href="/english/cgi-bin/search.cgi">Search</a></li>
  </ul>
 </div>
 
 <div class="col-9 col-m-9">
 
 <p>Given a set of one more more Project English identifiers, this page will return a tabled view of the set. This enables the reader to sort their search results in any number of ways.</p>
-<form method='POST' action='/cgi-bin/ids2table.cgi'>
+<form method='POST' action='/english/cgi-bin/ids2table.cgi'>
 <input type='text' name='ids' size='50' value='1302901107 1323300900 1323600600 1346000200 1375900300 A07517 A08185 A66057 A67873 A67917 SABCPA8064301 SABCPA8094100 SABCPA8098400 SABCPA8193404 SABCPA8258500'/>
 <input type='submit' value='View as table' />
 </form>
@@ -216,11 +216,11 @@ sub db2table {
 <!DOCTYPE html>
 <head>
 	<title>Project English - View as table</title>
-  	<script type="text/javascript" charset="utf8" src="/etc/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="/etc/DataTables/datatables.js"></script>
+  	<script type="text/javascript" charset="utf8" src="/english/etc/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/english/etc/DataTables/datatables.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/etc/style.css">
-	<link rel="stylesheet" type="text/css" href="/etc/DataTables/datatables.css">
+	<link rel="stylesheet" href="/english/etc/style.css">
+	<link rel="stylesheet" type="text/css" href="/english/etc/DataTables/datatables.css">
     <script>
 		\$(document).ready(function() { 
 			\$('#bibliographics').DataTable({"order": [[ 1, "asc" ]], "paging": false });
@@ -270,7 +270,7 @@ EOF
 sub ids2tsv {
 
 	return <<EOF
-<a href="/cgi-bin/ids2tsv.cgi?ids=##IDS##">Download metadata</a>
+<a href="/english/cgi-bin/ids2tsv.cgi?ids=##IDS##">Download metadata</a>
 EOF
 
 }

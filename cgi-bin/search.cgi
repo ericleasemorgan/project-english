@@ -74,7 +74,7 @@ else {
 	foreach my $facet ( sort { $$author_facets{ $b } <=> $$author_facets{ $a } } keys %$author_facets ) {
 	
 		my $encoded = uri_encode( $facet );
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND author:"$encoded"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND author:"$encoded"'>$facet</a>);
 		push @facets_author, $link . ' (' . $$author_facets{ $facet } . ')';
 		
 	}
@@ -84,7 +84,7 @@ else {
 	my $collection_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_collection } );
 	foreach my $facet ( sort { $$collection_facets{ $b } <=> $$collection_facets{ $a } } keys %$collection_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND collection:"$facet"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND collection:"$facet"'>$facet</a>);
 		push @facets_collection, $link . ' (' . $$collection_facets{ $facet } . ')';
 		
 	}
@@ -94,7 +94,7 @@ else {
 	my $year_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_year } );
 	foreach my $facet ( sort { $$year_facets{ $b } <=> $$year_facets{ $a } } keys %$year_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND year:"$facet"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND year:"$facet"'>$facet</a>);
 		push @facets_year, $link . ' (' . $$year_facets{ $facet } . ')';
 		
 	}
@@ -104,7 +104,7 @@ else {
 	my $language_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_language } );
 	foreach my $facet ( sort { $$language_facets{ $b } <=> $$language_facets{ $a } } keys %$language_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND language:"$facet"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND language:"$facet"'>$facet</a>);
 		push @facets_language, $link . ' (' . $$language_facets{ $facet } . ')';
 		
 	}
@@ -114,7 +114,7 @@ else {
 	my $century_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_century } );
 	foreach my $facet ( sort { $$century_facets{ $b } <=> $$century_facets{ $a } } keys %$century_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND century:"$facet"'>) . $facet . 'th</a>';
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND century:"$facet"'>) . $facet . 'th</a>';
 		push @facets_century, $link . ' (' . $$century_facets{ $facet } . ')';
 		
 	}
@@ -124,7 +124,7 @@ else {
 	my $city_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_city } );
 	foreach my $facet ( sort { $$city_facets{ $b } <=> $$city_facets{ $a } } keys %$city_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND city:"$facet"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND city:"$facet"'>$facet</a>);
 		push @facets_city, $link . ' (' . $$city_facets{ $facet } . ')';
 		
 	}
@@ -134,7 +134,7 @@ else {
 	my $date_facets = &get_facets( $response->facet_counts->{ facet_fields }->{ facet_date } );
 	foreach my $facet ( sort { $$date_facets{ $b } <=> $$date_facets{ $a } } keys %$date_facets ) {
 	
-		my $link = qq(<a href='/cgi-bin/search.cgi?query=$sanitized AND date:"$facet"'>$facet</a>);
+		my $link = qq(<a href='/english/cgi-bin/search.cgi?query=$sanitized AND date:"$facet"'>$facet</a>);
 		push @facets_date, $link . ' (' . $$date_facets{ $facet } . ')';
 		
 	}
@@ -184,7 +184,7 @@ else {
 		my @authors = ();
 		foreach my $author ( $doc->values_for( 'author' ) ) {
 		
-			my $author = qq(<a href='/cgi-bin/search.cgi?query=author:"$author"'>$author</a>);
+			my $author = qq(<a href='/english/cgi-bin/search.cgi?query=author:"$author"'>$author</a>);
 			push( @authors, $author );
 
 		}
@@ -196,7 +196,7 @@ else {
 		my @subjects = ();
 		foreach my $subject ( $doc->values_for( 'subject' ) ) {
 		
-			my $subject = qq(<a href='/cgi-bin/search.cgi?query=subject:"$subject"'>$subject</a>);
+			my $subject = qq(<a href='/english/cgi-bin/search.cgi?query=subject:"$subject"'>$subject</a>);
 			push( @subjects, $subject );
 
 		}
@@ -329,7 +329,7 @@ sub template {
 <head>
 	<title>Project English</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/etc/style.css">
+	<link rel="stylesheet" href="/english/etc/style.css">
 	<style>
 		.item { margin-bottom: 1em }
 	</style>
@@ -341,10 +341,10 @@ sub template {
 
 <div class="col-3 col-m-3 menu">
   <ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/tools.html">Extra tools</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About</a></li>
+    <li><a href="/english/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/tools.html">Extra tools</a></li>
  </ul>
 </div>
 
@@ -352,12 +352,12 @@ sub template {
 
 	<p>Given a query, this page will return a relevancy ranked list of results.</p>
 	<p>
-	<form method='GET' action='/cgi-bin/search.cgi'>
+	<form method='GET' action='/english/cgi-bin/search.cgi'>
 	Query: <input type='text' name='query' value='##QUERY##' size='50' autofocus="autofocus"/>
 	<input type='submit' value='Search' />
 	</form>
 
-<p>Hard pressed for a query? Try searching by any one of these "great ideas": <a href='/cgi-bin/search.cgi?query=title:angel'>angel</a>, <a href='/cgi-bin/search.cgi?query=title:animal'>animal</a>, <a href='/cgi-bin/search.cgi?query=title:aristocracy'>aristocracy</a>, <a href='/cgi-bin/search.cgi?query=title:art'>art</a>, <a href='/cgi-bin/search.cgi?query=title:astronomy'>astronomy</a>, <a href='/cgi-bin/search.cgi?query=title:beauty'>beauty</a>, <a href='/cgi-bin/search.cgi?query=title:being'>being</a>, <a href='/cgi-bin/search.cgi?query=title:cause'>cause</a>, <a href='/cgi-bin/search.cgi?query=title:chance'>chance</a>, <a href='/cgi-bin/search.cgi?query=title:change'>change</a>, <a href='/cgi-bin/search.cgi?query=title:citizen'>citizen</a>, <a href='/cgi-bin/search.cgi?query=title:constitution'>constitution</a>, <a href='/cgi-bin/search.cgi?query=title:contingency'>contingency</a>, <a href='/cgi-bin/search.cgi?query=title:convention'>convention</a>, <a href='/cgi-bin/search.cgi?query=title:cosmology'>cosmology</a>, <a href='/cgi-bin/search.cgi?query=title:courage'>courage</a>, <a href='/cgi-bin/search.cgi?query=title:custom'>custom</a>, <a href='/cgi-bin/search.cgi?query=title:death'>death</a>, <a href='/cgi-bin/search.cgi?query=title:definition'>definition</a>, <a href='/cgi-bin/search.cgi?query=title:democracy'>democracy</a>, <a href='/cgi-bin/search.cgi?query=title:desire'>desire</a>, <a href='/cgi-bin/search.cgi?query=title:despotism'>despotism</a>, <a href='/cgi-bin/search.cgi?query=title:dialectic'>dialectic</a>, <a href='/cgi-bin/search.cgi?query=title:duty'>duty</a>, <a href='/cgi-bin/search.cgi?query=title:education'>education</a>, <a href='/cgi-bin/search.cgi?query=title:element'>element</a>, <a href='/cgi-bin/search.cgi?query=title:emotion'>emotion</a>, <a href='/cgi-bin/search.cgi?query=title:equality'>equality</a>, <a href='/cgi-bin/search.cgi?query=title:eternity'>eternity</a>, <a href='/cgi-bin/search.cgi?query=title:evil'>evil</a>, <a href='/cgi-bin/search.cgi?query=title:evolution'>evolution</a>, <a href='/cgi-bin/search.cgi?query=title:experience'>experience</a>, <a href='/cgi-bin/search.cgi?query=title:family'>family</a>, <a href='/cgi-bin/search.cgi?query=title:fate'>fate</a>, <a href='/cgi-bin/search.cgi?query=title:form'>form</a>, <a href='/cgi-bin/search.cgi?query=title:god'>god</a>, <a href='/cgi-bin/search.cgi?query=title:good'>good</a>, <a href='/cgi-bin/search.cgi?query=title:government'>government</a>, <a href='/cgi-bin/search.cgi?query=title:habit'>habit</a>, <a href='/cgi-bin/search.cgi?query=title:happiness'>happiness</a>, <a href='/cgi-bin/search.cgi?query=title:history'>history</a>, <a href='/cgi-bin/search.cgi?query=title:honor'>honor</a>, <a href='/cgi-bin/search.cgi?query=title:hypothesis'>hypothesis</a>, <a href='/cgi-bin/search.cgi?query=title:idea'>idea</a>, <a href='/cgi-bin/search.cgi?query=title:imagination'>imagination</a>, <a href='/cgi-bin/search.cgi?query=title:immortality'>immortality</a>, <a href='/cgi-bin/search.cgi?query=title:induction'>induction</a>, <a href='/cgi-bin/search.cgi?query=title:infinity'>infinity</a>, <a href='/cgi-bin/search.cgi?query=title:judgment'>judgment</a>, <a href='/cgi-bin/search.cgi?query=title:justice'>justice</a>, <a href='/cgi-bin/search.cgi?query=title:knowledge'>knowledge</a>, <a href='/cgi-bin/search.cgi?query=title:labor'>labor</a>, <a href='/cgi-bin/search.cgi?query=title:language'>language</a>, <a href='/cgi-bin/search.cgi?query=title:law'>law</a>, <a href='/cgi-bin/search.cgi?query=title:liberty'>liberty</a>, <a href='/cgi-bin/search.cgi?query=title:life'>life</a>, <a href='/cgi-bin/search.cgi?query=title:logic'>logic</a>, <a href='/cgi-bin/search.cgi?query=title:love'>love</a>, <a href='/cgi-bin/search.cgi?query=title:man'>man</a>, <a href='/cgi-bin/search.cgi?query=title:many'>many</a>, <a href='/cgi-bin/search.cgi?query=title:mathematics'>mathematics</a>, <a href='/cgi-bin/search.cgi?query=title:matter'>matter</a>, <a href='/cgi-bin/search.cgi?query=title:mechanics'>mechanics</a>, <a href='/cgi-bin/search.cgi?query=title:medicine'>medicine</a>, <a href='/cgi-bin/search.cgi?query=title:memory'>memory</a>, <a href='/cgi-bin/search.cgi?query=title:metaphysics'>metaphysics</a>, <a href='/cgi-bin/search.cgi?query=title:mind'>mind</a>, <a href='/cgi-bin/search.cgi?query=title:monarchy'>monarchy</a>, <a href='/cgi-bin/search.cgi?query=title:nature'>nature</a>, <a href='/cgi-bin/search.cgi?query=title:necessity'>necessity</a>, <a href='/cgi-bin/search.cgi?query=title:oligarchy'>oligarchy</a>, <a href='/cgi-bin/search.cgi?query=title:one'>one</a>, <a href='/cgi-bin/search.cgi?query=title:opinion'>opinion</a>, <a href='/cgi-bin/search.cgi?query=title:opposition'>opposition</a>, <a href='/cgi-bin/search.cgi?query=title:other'>other</a>, <a href='/cgi-bin/search.cgi?query=title:pain'>pain</a>, <a href='/cgi-bin/search.cgi?query=title:particular'>particular</a>, <a href='/cgi-bin/search.cgi?query=title:peace'>peace</a>, <a href='/cgi-bin/search.cgi?query=title:philosophy'>philosophy</a>, <a href='/cgi-bin/search.cgi?query=title:physics'>physics</a>, <a href='/cgi-bin/search.cgi?query=title:pleasure'>pleasure</a>, <a href='/cgi-bin/search.cgi?query=title:poetry'>poetry</a>, <a href='/cgi-bin/search.cgi?query=title:principle'>principle</a>, <a href='/cgi-bin/search.cgi?query=title:progress'>progress</a>, <a href='/cgi-bin/search.cgi?query=title:prophecy'>prophecy</a>, <a href='/cgi-bin/search.cgi?query=title:prudence'>prudence</a>, <a href='/cgi-bin/search.cgi?query=title:punishment'>punishment</a>, <a href='/cgi-bin/search.cgi?query=title:quality'>quality</a>, <a href='/cgi-bin/search.cgi?query=title:quantity'>quantity</a>, <a href='/cgi-bin/search.cgi?query=title:reasoning'>reasoning</a>, <a href='/cgi-bin/search.cgi?query=title:relation'>relation</a>, <a href='/cgi-bin/search.cgi?query=title:religion'>religion</a>, <a href='/cgi-bin/search.cgi?query=title:revolution'>revolution</a>, <a href='/cgi-bin/search.cgi?query=title:rhetoric'>rhetoric</a>, <a href='/cgi-bin/search.cgi?query=title:same'>same</a>, <a href='/cgi-bin/search.cgi?query=title:science'>science</a>, <a href='/cgi-bin/search.cgi?query=title:sense'>sense</a>, <a href='/cgi-bin/search.cgi?query=title:sign'>sign</a>, <a href='/cgi-bin/search.cgi?query=title:sin'>sin</a>, <a href='/cgi-bin/search.cgi?query=title:slavery'>slavery</a>, <a href='/cgi-bin/search.cgi?query=title:soul'>soul</a>, <a href='/cgi-bin/search.cgi?query=title:space'>space</a>, <a href='/cgi-bin/search.cgi?query=title:state'>state</a>, <a href='/cgi-bin/search.cgi?query=title:symbol'>symbol</a>, <a href='/cgi-bin/search.cgi?query=title:temperance'>temperance</a>, <a href='/cgi-bin/search.cgi?query=title:theology'>theology</a>, <a href='/cgi-bin/search.cgi?query=title:time'>time</a>, <a href='/cgi-bin/search.cgi?query=title:truth'>truth</a>, <a href='/cgi-bin/search.cgi?query=title:tyranny'>tyranny</a>, <a href='/cgi-bin/search.cgi?query=title:universal'>universal</a>, <a href='/cgi-bin/search.cgi?query=title:vice'>vice</a>, <a href='/cgi-bin/search.cgi?query=title:virtue'>virtue</a>, <a href='/cgi-bin/search.cgi?query=title:war'>war</a>, <a href='/cgi-bin/search.cgi?query=title:wealth'>wealth</a>, <a href='/cgi-bin/search.cgi?query=title:will'>will</a>, <a href='/cgi-bin/search.cgi?query=title:wisdom'>wisdom</a>, <a href='/cgi-bin/search.cgi?query=title:world'>world</a></p>
+<p>Hard pressed for a query? Try searching by any one of these "great ideas": <a href='/english/cgi-bin/search.cgi?query=title:angel'>angel</a>, <a href='/english/cgi-bin/search.cgi?query=title:animal'>animal</a>, <a href='/english/cgi-bin/search.cgi?query=title:aristocracy'>aristocracy</a>, <a href='/english/cgi-bin/search.cgi?query=title:art'>art</a>, <a href='/english/cgi-bin/search.cgi?query=title:astronomy'>astronomy</a>, <a href='/english/cgi-bin/search.cgi?query=title:beauty'>beauty</a>, <a href='/english/cgi-bin/search.cgi?query=title:being'>being</a>, <a href='/english/cgi-bin/search.cgi?query=title:cause'>cause</a>, <a href='/english/cgi-bin/search.cgi?query=title:chance'>chance</a>, <a href='/english/cgi-bin/search.cgi?query=title:change'>change</a>, <a href='/english/cgi-bin/search.cgi?query=title:citizen'>citizen</a>, <a href='/english/cgi-bin/search.cgi?query=title:constitution'>constitution</a>, <a href='/english/cgi-bin/search.cgi?query=title:contingency'>contingency</a>, <a href='/english/cgi-bin/search.cgi?query=title:convention'>convention</a>, <a href='/english/cgi-bin/search.cgi?query=title:cosmology'>cosmology</a>, <a href='/english/cgi-bin/search.cgi?query=title:courage'>courage</a>, <a href='/english/cgi-bin/search.cgi?query=title:custom'>custom</a>, <a href='/english/cgi-bin/search.cgi?query=title:death'>death</a>, <a href='/english/cgi-bin/search.cgi?query=title:definition'>definition</a>, <a href='/english/cgi-bin/search.cgi?query=title:democracy'>democracy</a>, <a href='/english/cgi-bin/search.cgi?query=title:desire'>desire</a>, <a href='/english/cgi-bin/search.cgi?query=title:despotism'>despotism</a>, <a href='/english/cgi-bin/search.cgi?query=title:dialectic'>dialectic</a>, <a href='/english/cgi-bin/search.cgi?query=title:duty'>duty</a>, <a href='/english/cgi-bin/search.cgi?query=title:education'>education</a>, <a href='/english/cgi-bin/search.cgi?query=title:element'>element</a>, <a href='/english/cgi-bin/search.cgi?query=title:emotion'>emotion</a>, <a href='/english/cgi-bin/search.cgi?query=title:equality'>equality</a>, <a href='/english/cgi-bin/search.cgi?query=title:eternity'>eternity</a>, <a href='/english/cgi-bin/search.cgi?query=title:evil'>evil</a>, <a href='/english/cgi-bin/search.cgi?query=title:evolution'>evolution</a>, <a href='/english/cgi-bin/search.cgi?query=title:experience'>experience</a>, <a href='/english/cgi-bin/search.cgi?query=title:family'>family</a>, <a href='/english/cgi-bin/search.cgi?query=title:fate'>fate</a>, <a href='/english/cgi-bin/search.cgi?query=title:form'>form</a>, <a href='/english/cgi-bin/search.cgi?query=title:god'>god</a>, <a href='/english/cgi-bin/search.cgi?query=title:good'>good</a>, <a href='/english/cgi-bin/search.cgi?query=title:government'>government</a>, <a href='/english/cgi-bin/search.cgi?query=title:habit'>habit</a>, <a href='/english/cgi-bin/search.cgi?query=title:happiness'>happiness</a>, <a href='/english/cgi-bin/search.cgi?query=title:history'>history</a>, <a href='/english/cgi-bin/search.cgi?query=title:honor'>honor</a>, <a href='/english/cgi-bin/search.cgi?query=title:hypothesis'>hypothesis</a>, <a href='/english/cgi-bin/search.cgi?query=title:idea'>idea</a>, <a href='/english/cgi-bin/search.cgi?query=title:imagination'>imagination</a>, <a href='/english/cgi-bin/search.cgi?query=title:immortality'>immortality</a>, <a href='/english/cgi-bin/search.cgi?query=title:induction'>induction</a>, <a href='/english/cgi-bin/search.cgi?query=title:infinity'>infinity</a>, <a href='/english/cgi-bin/search.cgi?query=title:judgment'>judgment</a>, <a href='/english/cgi-bin/search.cgi?query=title:justice'>justice</a>, <a href='/english/cgi-bin/search.cgi?query=title:knowledge'>knowledge</a>, <a href='/english/cgi-bin/search.cgi?query=title:labor'>labor</a>, <a href='/english/cgi-bin/search.cgi?query=title:language'>language</a>, <a href='/english/cgi-bin/search.cgi?query=title:law'>law</a>, <a href='/english/cgi-bin/search.cgi?query=title:liberty'>liberty</a>, <a href='/english/cgi-bin/search.cgi?query=title:life'>life</a>, <a href='/english/cgi-bin/search.cgi?query=title:logic'>logic</a>, <a href='/english/cgi-bin/search.cgi?query=title:love'>love</a>, <a href='/english/cgi-bin/search.cgi?query=title:man'>man</a>, <a href='/english/cgi-bin/search.cgi?query=title:many'>many</a>, <a href='/english/cgi-bin/search.cgi?query=title:mathematics'>mathematics</a>, <a href='/english/cgi-bin/search.cgi?query=title:matter'>matter</a>, <a href='/english/cgi-bin/search.cgi?query=title:mechanics'>mechanics</a>, <a href='/english/cgi-bin/search.cgi?query=title:medicine'>medicine</a>, <a href='/english/cgi-bin/search.cgi?query=title:memory'>memory</a>, <a href='/english/cgi-bin/search.cgi?query=title:metaphysics'>metaphysics</a>, <a href='/english/cgi-bin/search.cgi?query=title:mind'>mind</a>, <a href='/english/cgi-bin/search.cgi?query=title:monarchy'>monarchy</a>, <a href='/english/cgi-bin/search.cgi?query=title:nature'>nature</a>, <a href='/english/cgi-bin/search.cgi?query=title:necessity'>necessity</a>, <a href='/english/cgi-bin/search.cgi?query=title:oligarchy'>oligarchy</a>, <a href='/english/cgi-bin/search.cgi?query=title:one'>one</a>, <a href='/english/cgi-bin/search.cgi?query=title:opinion'>opinion</a>, <a href='/english/cgi-bin/search.cgi?query=title:opposition'>opposition</a>, <a href='/english/cgi-bin/search.cgi?query=title:other'>other</a>, <a href='/english/cgi-bin/search.cgi?query=title:pain'>pain</a>, <a href='/english/cgi-bin/search.cgi?query=title:particular'>particular</a>, <a href='/english/cgi-bin/search.cgi?query=title:peace'>peace</a>, <a href='/english/cgi-bin/search.cgi?query=title:philosophy'>philosophy</a>, <a href='/english/cgi-bin/search.cgi?query=title:physics'>physics</a>, <a href='/english/cgi-bin/search.cgi?query=title:pleasure'>pleasure</a>, <a href='/english/cgi-bin/search.cgi?query=title:poetry'>poetry</a>, <a href='/english/cgi-bin/search.cgi?query=title:principle'>principle</a>, <a href='/english/cgi-bin/search.cgi?query=title:progress'>progress</a>, <a href='/english/cgi-bin/search.cgi?query=title:prophecy'>prophecy</a>, <a href='/english/cgi-bin/search.cgi?query=title:prudence'>prudence</a>, <a href='/english/cgi-bin/search.cgi?query=title:punishment'>punishment</a>, <a href='/english/cgi-bin/search.cgi?query=title:quality'>quality</a>, <a href='/english/cgi-bin/search.cgi?query=title:quantity'>quantity</a>, <a href='/english/cgi-bin/search.cgi?query=title:reasoning'>reasoning</a>, <a href='/english/cgi-bin/search.cgi?query=title:relation'>relation</a>, <a href='/english/cgi-bin/search.cgi?query=title:religion'>religion</a>, <a href='/english/cgi-bin/search.cgi?query=title:revolution'>revolution</a>, <a href='/english/cgi-bin/search.cgi?query=title:rhetoric'>rhetoric</a>, <a href='/english/cgi-bin/search.cgi?query=title:same'>same</a>, <a href='/english/cgi-bin/search.cgi?query=title:science'>science</a>, <a href='/english/cgi-bin/search.cgi?query=title:sense'>sense</a>, <a href='/english/cgi-bin/search.cgi?query=title:sign'>sign</a>, <a href='/english/cgi-bin/search.cgi?query=title:sin'>sin</a>, <a href='/english/cgi-bin/search.cgi?query=title:slavery'>slavery</a>, <a href='/english/cgi-bin/search.cgi?query=title:soul'>soul</a>, <a href='/english/cgi-bin/search.cgi?query=title:space'>space</a>, <a href='/english/cgi-bin/search.cgi?query=title:state'>state</a>, <a href='/english/cgi-bin/search.cgi?query=title:symbol'>symbol</a>, <a href='/english/cgi-bin/search.cgi?query=title:temperance'>temperance</a>, <a href='/english/cgi-bin/search.cgi?query=title:theology'>theology</a>, <a href='/english/cgi-bin/search.cgi?query=title:time'>time</a>, <a href='/english/cgi-bin/search.cgi?query=title:truth'>truth</a>, <a href='/english/cgi-bin/search.cgi?query=title:tyranny'>tyranny</a>, <a href='/english/cgi-bin/search.cgi?query=title:universal'>universal</a>, <a href='/english/cgi-bin/search.cgi?query=title:vice'>vice</a>, <a href='/english/cgi-bin/search.cgi?query=title:virtue'>virtue</a>, <a href='/english/cgi-bin/search.cgi?query=title:war'>war</a>, <a href='/english/cgi-bin/search.cgi?query=title:wealth'>wealth</a>, <a href='/english/cgi-bin/search.cgi?query=title:will'>will</a>, <a href='/english/cgi-bin/search.cgi?query=title:wisdom'>wisdom</a>, <a href='/english/cgi-bin/search.cgi?query=title:world'>world</a></p>
 
 
 	##RESULTS##
@@ -386,7 +386,7 @@ sub results_template {
 <head>
 	<title>Project English</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/etc/style.css">
+	<link rel="stylesheet" href="/english/etc/style.css">
 	<style>
 		.item { margin-bottom: 1em }
 	</style>
@@ -398,16 +398,16 @@ sub results_template {
 
 <div class="col-3 col-m-3 menu">
 	<ul>
-    <li><a href="/home.html">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/cgi-bin/search.cgi">Search</a></li>
-    <li><a href="/tools.html">Extra tools</a></li>
+    <li><a href="/english/home.html">Home</a></li>
+    <li><a href="/english/about/">About</a></li>
+    <li><a href="/english/cgi-bin/search.cgi">Search</a></li>
+    <li><a href="/english/tools.html">Extra tools</a></li>
 	</ul>
 </div>
 
 	<div class="col-6 col-m-6">
 		<p>
-		<form method='GET' action='/cgi-bin/search.cgi'>
+		<form method='GET' action='/english/cgi-bin/search.cgi'>
 		Query: <input type='text' name='query' value='##QUERY##' size='50' autofocus="autofocus"/>
 		<input type='submit' value='Search' />
 		</form>
@@ -436,7 +436,7 @@ EOF
 sub ids2urls {
 
 	return <<EOF
-<a href="/cgi-bin/ids2urls.cgi?ids=##IDS##">List URLs</a>
+<a href="/english/cgi-bin/ids2urls.cgi?ids=##IDS##">List URLs</a>
 EOF
 
 }
@@ -444,7 +444,7 @@ EOF
 sub ids2table {
 
 	return <<EOF
-<a href="/cgi-bin/ids2table.cgi?ids=##IDS##">View as table</a>
+<a href="/english/cgi-bin/ids2table.cgi?ids=##IDS##">View as table</a>
 EOF
 
 }
@@ -452,7 +452,7 @@ EOF
 sub ids2zip {
 
 	return <<EOF
-<a href="/cgi-bin/ids2zip.cgi?ids=##IDS##">Download search results</a>
+<a href="/english/cgi-bin/ids2zip.cgi?ids=##IDS##">Download search results</a>
 EOF
 
 }
@@ -460,7 +460,7 @@ EOF
 sub ids2carrel {
 
 	return <<EOF
-<a href="/cgi-bin/ids2carrel.cgi?ids=##IDS##">Analyze results</a>
+<a href="/english/cgi-bin/ids2carrel.cgi?ids=##IDS##">Analyze results</a>
 EOF
 
 }
