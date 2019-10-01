@@ -11,7 +11,7 @@
 
 
 # configure
-ROOT='/afs/crc.nd.edu/user/e/emorgan/local/ecco'
+ROOT='/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections/ecco'
 XSLTPROC='/usr/bin/xsltproc'
 STYLESHEET='./etc/xml2txt-ecco.xsl'
 FILE=$1

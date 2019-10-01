@@ -38,13 +38,16 @@ QUERIES  = { 'pos'            : "SELECT COUNT( pos )    AS f, pos     FROM pos  
 # require
 import cgi
 import sqlite3
+import sys
+import codecs
 
 import cgitb
 cgitb.enable()
 #print( 'Content-Type: text/plain\n' )
 
 # initialize
-input = cgi.FieldStorage()
+input      = cgi.FieldStorage()
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
 
 # check for input; build default page
 if ( "id" not in input or 'type' not in input ) :

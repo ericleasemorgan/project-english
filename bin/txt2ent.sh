@@ -11,7 +11,7 @@
 # May 23, 2018 - first cut
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 ID2ENT='./bin/txt2ent.py'
 
 # get input

@@ -10,7 +10,7 @@
 
 # configure
 use constant QUERY  => qq(SELECT id, collection FROM titles WHERE ##CLAUSE## ORDER BY id;);
-use constant HTTP   => 'http://cds.crc.nd.edu';
+use constant HTTP   => 'http://cds.crc.nd.edu/english';
 
 # require
 use strict;

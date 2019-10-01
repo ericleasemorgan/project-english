@@ -5,9 +5,10 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame, distributed under a GNU Public License
 
-# April 23, 2018 - first investigations; 
+# April  23, 2018 - first investigations; 
+# August 22, 2018 - fixed stupid ascii/utf-8 encoding error; Yeah!
 
-
+# configure
 DATABASE = '../etc/english.db'
 SQL      = 'SELECT collection FROM TITLES WHERE id=?'
 FREEBO   = '../collections/freebo/';
@@ -15,19 +16,20 @@ ECCO     = '../collections/ecco/';
 SABIN    = '../collections/sabin/';
 XYZZY    = '../carrels/xyzzy/etc/carrell.txt';
 
-
 # require
 from nltk        import word_tokenize, ngrams, FreqDist
 from nltk.corpus import stopwords
 import cgi
+import codecs
 import sqlite3
-
+import sys
 import cgitb
 cgitb.enable()
 #print( 'Content-Type: text/html\n' )
 
 # initialize
-input = cgi.FieldStorage()
+input      = cgi.FieldStorage()
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
 
 # check for input; build default page
 if "id" not in input or "n" not in input :

@@ -10,13 +10,13 @@
 
 
 # configure
-ROOT='/afs/crc.nd.edu/user/e/emorgan/local/english'
+ROOT='/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections/ecco'
 XSLTPROC='/usr/bin/xsltproc'
 STYLESHEET='./etc/xml2htm-ecco.xsl'
 FILE=$1
 
 # initialize
-cd $ROOT
+#cd $ROOT
 ORIGINAL=$( dirname "${FILE}" )
 LEAF=$( basename "$FILE" .xml )
 OUTPUT="$ORIGINAL/$LEAF.htm"

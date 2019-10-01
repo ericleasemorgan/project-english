@@ -10,7 +10,7 @@
 
 
 # configure
-ROOT='/afs/crc.nd.edu/user/e/emorgan/local/english/collections/ecco'
+ROOT='/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections/ecco'
 FILE=$1
 
 # initialize

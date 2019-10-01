@@ -13,7 +13,7 @@
 use constant QUERY  => qq(SELECT * FROM titles WHERE ##CLAUSE## ORDER BY id;);
 use constant HTTP   => 'http://cds.crc.nd.edu';
 #use constant HEADER => ( 'id', 'collection', 'title', 'url' );
-use constant HEADER => ( 'century', 'city', 'collection', 'date', 'extent', 'id', 'imprint', 'language', 'pages', 'place', 'publisher', 'title', 'words', 'year', 'url' );
+use constant HEADER => ( 'author', 'century', 'city', 'collection', 'date', 'extent', 'id', 'imprint', 'language', 'pages', 'place', 'publisher', 'title', 'words', 'year', 'url' );
 
 # require
 use strict;
@@ -84,6 +84,13 @@ else {
 		# build the url
 		my $url = HTTP . &id2root( $collection, $id );
 
+		# find the given title's authors; only get the first one
+		my $author = '';
+		my $subhandle = $dbh->prepare( qq(SELECT * FROM authors WHERE id='$id';) );
+		$subhandle->execute() or die $DBI::errstr;
+		my $results = $subhandle->fetchrow_hashref;
+		$author     = $$results{ 'author' };
+
 		# debug; dump
 		#print STDERR "  identifier: $id\n";
 		#print STDERR "  collection: $collection\n";
@@ -92,7 +99,7 @@ else {
 		#print STDERR "\n";
 
 		# create a record and then update the "database"
-		my @record = ( $century, $city, $collection, $date, $extent, $id, $imprint, $language, $pages, $place, $publisher, $title, $words, $year, $url );
+		my @record = ( $author, $century, $city, $collection, $date, $extent, $id, $imprint, $language, $pages, $place, $publisher, $title, $words, $year, $url );
 		push( @records, join( "\t", @record ) );
 	
 	}
