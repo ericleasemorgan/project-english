@@ -17,7 +17,7 @@
 
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 PERL5LIB='/afs/crc.nd.edu/user/e/emorgan/lib'
 XML2SQL='./bin/xml2sql-titles.pl'
 

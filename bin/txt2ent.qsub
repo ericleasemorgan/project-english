@@ -2,15 +2,15 @@
 
 # configure qsub
 #$ -N TXT2E02
-#$ -t 1-20000
-#$ -o /afs/crc.nd.edu/user/e/emorgan/local/english/log/txt2ent-02
+#$ -t 1-2460
+#$ -o /afs/crc.nd.edu/user/e/emorgan/local/html/english/log/batch-03
 
 # configure and make sane
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 cd $HOME
 
 # find all files to process
-FILES=( $( cat ./tmp/batch-02-of-04.txt ) )
+FILES=( $( cat ./tmp/entities2process.txt ) )
 
 # do the work
 FILE="${FILES[${SGE_TASK_ID}]}"

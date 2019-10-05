@@ -9,7 +9,7 @@
 # June 12, 2018 - first cut
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 ID2DB='./bin/id2db.pl'
 
 # get input

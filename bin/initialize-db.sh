@@ -9,7 +9,7 @@
 
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 DB='./etc/english.db'
 SCHEMA='./etc/schema.sql'
 IDS='./etc/ids.txt'
@@ -21,7 +21,7 @@ cd $HOME
 # initialize SQL
 echo "Initializing."        >&2
 echo "BEGIN TRANSACTION;"   >  $SQL
-cat $SCHEMA                 >> $SQL
+#cat $SCHEMA                 >> $SQL
 
 # process each identifier
 echo "Reading identifiers." >&2
@@ -36,7 +36,7 @@ echo "COMMIT TRANSACTION;"     >> $SQL
 
 # do the work
 echo "Commiting."           >&2
-rm $DB
+#rm $DB
 cat $SQL | sqlite3 $DB
 
 # done

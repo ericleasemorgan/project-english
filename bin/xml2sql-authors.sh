@@ -14,19 +14,41 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # (c) University of Notre Dame; distributed under the GNU Public License
 
-# April 27, 2018 - first cut, and based on other work
+# April  27, 2018 - first cut, and based on other work
+# October 4, 2019 - added ability determine file to process based on simple file name, not full path
 
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 PERL5LIB='/afs/crc.nd.edu/user/e/emorgan/lib'
 XML2SQLAUTHOR='./bin/xml2sql-authors.pl'
 LOG='./log/xml2sql-author'
 SQL='./tmp/sql-authors'
+ECCO='/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections/ecco'
+
+# sanity check
+if [[ -z $1 || -z $2 ]]; then
+	echo "Usage: $0 <freebo|ecco|sabin> <file>" >&2
+	exit
+fi
 
 # get input
 COLLECTION=$1
 FILE=$2
+
+# branch according to collection
+if [[ $COLLECTION == 'ecco' ]]; then
+
+	# ecco
+	BASE=$(basename $FILE .xml)
+	CODE=$(echo $BASE | cut -c1-2)
+	SUBCODE=$(echo $BASE | cut -c3-4)
+	FILE="$ECCO/$CODE/$SUBCODE/$BASE/$BASE.xml"		
+	
+else
+	echo "That collection is not implemented, yet. Call Eric." >&2
+	exit
+fi
 
 # sanity
 cd $HOME

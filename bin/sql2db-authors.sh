@@ -8,7 +8,7 @@
 # April 27, 2018 - first cut, but based on other work
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 UPDATES='./tmp/sql-authors/*.sql'
 DB='./etc/english.db'
 SQL='./tmp/english-authors.sql'

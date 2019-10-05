@@ -8,8 +8,8 @@
 # December 30, 2017 - first cut for ECCO
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
-UPDATES='./tmp/sql-titles/*.sql'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
+UPDATES='./tmp/sql-titles-ecco/*.sql'
 DB='./etc/english.db'
 SQL='./tmp/english-titles.sql'
 

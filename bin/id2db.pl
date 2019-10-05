@@ -9,14 +9,14 @@
 
 
 # configure
-use constant CARRELLSQL => '/afs/crc.nd.edu/user/e/emorgan/local/english/etc/carrell.sql';
+use constant CARRELLSQL => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/etc/carrell.sql';
 use constant DRIVER     => 'SQLite';
-use constant ENGLISH    => '/afs/crc.nd.edu/user/e/emorgan/local/english/etc/english.db';
+use constant ENGLISH    => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/etc/english.db';
 
 # require
 use DBI;
 use strict;
-require '/afs/crc.nd.edu/user/e/emorgan/local/english/lib/english.pl';
+require '/afs/crc.nd.edu/user/e/emorgan/local/html/english/lib/english.pl';
 
 # sanity check
 my $directory = $ARGV[ 0 ];
