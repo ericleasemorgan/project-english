@@ -11,7 +11,7 @@
 use constant DATABASE    => './etc/english.db';
 use constant DRIVER      => 'SQLite';
 use constant SOLR        => 'http://localhost:8983/solr/english';
-use constant COLLECTIONS => '/afs/crc.nd.edu/user/e/emorgan/local/english/collections';
+use constant COLLECTIONS => '/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections';
 
 # require
 use DBI;

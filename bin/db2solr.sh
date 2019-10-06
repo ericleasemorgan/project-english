@@ -9,7 +9,7 @@
 # December 30, 2017 - first cut for ECCO
 
 # configure
-HOME='/afs/crc.nd.edu/user/e/emorgan/local/english'
+HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 DB2SOLR='./bin/db2solr.pl'
 
 # get input

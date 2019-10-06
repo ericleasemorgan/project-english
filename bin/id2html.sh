@@ -13,9 +13,31 @@
 # configure
 HOME='/afs/crc.nd.edu/user/e/emorgan/local/html/english'
 ID2HTML='./bin/id2html.pl'
+ECCO='/afs/crc.nd.edu/user/e/emorgan/local/html/english/collections/ecco'
+
+# sanity check
+if [[ -z $1 || -z $2 ]]; then
+	echo "Usage: $0 <freebo|ecco|sabin> <file>" >&2
+	exit
+fi
 
 # get input
-FILE=$1
+COLLECTION=$1
+FILE=$2
+
+# branch according to collection
+if [[ $COLLECTION == 'ecco' ]]; then
+
+	# ecco
+	BASE=$(basename $FILE .xml)
+	CODE=$(echo $BASE | cut -c1-2)
+	SUBCODE=$(echo $BASE | cut -c3-4)
+	FILE="$ECCO/$CODE/$SUBCODE/$BASE/$BASE.xml"		
+	
+else
+	echo "That collection is not implemented, yet. Call Eric." >&2
+	exit
+fi
 
 # make sane
 cd $HOME
@@ -26,11 +48,11 @@ OUTPUT="$ORIGINAL/$LEAF.html"
 # echo and do the work
 echo "$LEAF  $OUTPUT" >&2
 
-#if [ -f "$OUTPUT" ]; then
-#	echo "$OUTPUT exist" >&2
-#else
+if [ -f "$OUTPUT" ]; then
+	echo "$OUTPUT exist" >&2
+else
 	$ID2HTML $LEAF 1> $OUTPUT
-#fi
+fi
 
 
 
